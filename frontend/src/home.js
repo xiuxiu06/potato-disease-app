@@ -134,12 +134,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   appbar: {
-    background: '#3d9a40', /* Changed to Material-UI primary blue color */
+    background: '#4f7948', 
     boxShadow: 'none',
     color: 'white'
   },
   loader: {
-    color: '#3d9a40 !important', /* Also update the loader color to match */
+    color: '#4f7948 !important', 
   }
 }));
 export const ImageUpload = () => {

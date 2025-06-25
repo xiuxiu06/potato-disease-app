@@ -155,26 +155,13 @@ export const ImageUpload = () => {
     if (image) {
       let formData = new FormData();
       formData.append("file", selectedFile);
-      try {
-        let res = await axios({
-          method: "post",
-          url: process.env.REACT_APP_API_URL,
-          data: formData,
-        });
-        if (res.status === 200) {
-          setData(res.data);
-        }
-      } catch (error) {
-        console.error("API error:", error);
-        // Fallback for demo purposes when API is unavailable
-        const mockResponses = [
-          { class: "Early Blight", confidence: 0.79 },
-          { class: "Late Blight", confidence: 0.85 },
-          { class: "Healthy", confidence: 0.92 }
-        ];
-        // Choose a random response for demo
-        const randomIndex = Math.floor(Math.random() * mockResponses.length);
-        setData(mockResponses[randomIndex]);
+      let res = await axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL,
+        data: formData,
+      });
+      if (res.status === 200) {
+        setData(res.data);
       }
       setIsloading(false);
     }

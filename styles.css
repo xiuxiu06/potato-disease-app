@@ -1,0 +1,248 @@
+/* Custom styles for Quarto documentation */
+
+:root {
+  --primary-color: #2E8B57;
+  --secondary-color: #90EE90;
+  --accent-color: #FF6B35;
+  --text-dark: #2C3E50;
+  --bg-light: #F8F9FA;
+}
+
+/* Header and navigation styling */
+.navbar-brand {
+  font-weight: bold;
+  color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Main content styling */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  border-bottom: 3px solid var(--secondary-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Code blocks and syntax highlighting */
+.sourceCode {
+  background-color: #f8f8f8;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+pre {
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  background-color: rgba(175, 184, 193, 0.2);
+  border-radius: 3px;
+  padding: 0.1rem 0.25rem;
+  font-size: 0.9em;
+}
+
+/* Callout boxes */
+.callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.callout-note {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+}
+
+.callout-tip {
+  background-color: #e8f5e8;
+  border-left-color: var(--primary-color);
+}
+
+.callout-warning {
+  background-color: #fff3e0;
+  border-left-color: #ff9800;
+}
+
+.callout-important {
+  background-color: #ffebee;
+  border-left-color: #f44336;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+}
+
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+tr:nth-child(even) {
+  background-color: var(--bg-light);
+}
+
+tr:hover {
+  background-color: rgba(46, 139, 87, 0.05);
+}
+
+/* Buttons and interactive elements */
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #236B47;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(46, 139, 87, 0.3);
+}
+
+/* Figure captions */
+.figure-caption {
+  font-style: italic;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  table {
+    font-size: 0.9em;
+  }
+  
+  .sourceCode {
+    padding: 0.75rem;
+  }
+}
+
+/* Custom elements for project showcase */
+.tech-badge {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 500;
+  margin: 0.25rem;
+}
+
+.metric-card {
+  background-color: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.metric-label {
+  color: #6c757d;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Status indicators */
+.status-pass {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-warning {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.status-fail {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Mermaid diagram styling */
+.mermaid {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Print styles */
+@media print {
+  .navbar, .toc-sidebar {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  .callout, .metric-card {
+    page-break-inside: avoid;
+  }
+}

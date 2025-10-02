@@ -1,0 +1,35 @@
+project:
+  type: website
+  title: "Potato Disease Detection Project"
+  
+website:
+  title: "Potato Disease Detection"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Project Overview
+      - href: training.qmd
+        text: Model Training
+      - href: api-docs.qmd
+        text: API Code
+      - href: methodology.qmd
+        text: Approach
+    right:
+      - icon: github
+        href: https://github.com/xiuxiu06/potato-disease-app
+        
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    
+execute:
+  freeze: auto
+  eval: false
+  echo: true
+  
+jupyter: python3
+
+python:
+  executable: "C:/Python311/python.exe"

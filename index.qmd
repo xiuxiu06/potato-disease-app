@@ -1,0 +1,66 @@
+---
+title: "Potato Disease Detection System"
+subtitle: "AI-Powered Plant Health Assessment"
+author: "Tam Le"
+date: today
+format:
+  html:
+    code-fold: true
+    toc: true
+    theme: cosmo
+---
+
+## Project Overview
+
+This is a simple machine learning project that demonstrates a potato disease detection system. The project includes:
+
+- A **CNN model** trained on the PlantVillage dataset
+- A **FastAPI backend** that serves the model
+- A **React frontend** for uploading images
+- **Documentation** created with Quarto
+
+## What This Project Shows
+
+This project demonstrates my ability to:
+- Build end-to-end ML applications
+- Create REST APIs with FastAPI
+- Develop React frontends
+- Document projects professionally with Quarto
+- Work with TensorFlow/Keras
+
+## System Architecture
+
+```{mermaid}
+flowchart TD
+    A[Upload Image] --> B[React Frontend]
+    B --> C[FastAPI Backend]
+    C --> D[TensorFlow Model]
+    D --> E[Classification Result]
+    E --> B
+```
+
+## Technology Stack
+
+**Backend:**
+- FastAPI
+- TensorFlow 
+- PIL (Pillow)
+- NumPy
+
+**Frontend:**
+- React
+- Material-UI
+- Axios
+- Material-UI Dropzone
+
+**Model:**
+- CNN trained on PlantVillage dataset
+- 3 classes: Early Blight, Late Blight, Healthy
+
+## Project Structure
+
+- `/api` - FastAPI backend with model serving
+- `/frontend` - React application
+- `/models` - Trained TensorFlow model
+- `/training` - Jupyter notebook with training code
+- Quarto documentation (this website)

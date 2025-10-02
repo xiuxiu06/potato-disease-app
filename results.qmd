@@ -1,0 +1,84 @@
+---
+title: "Results & Performance Analysis"
+author: "Tam Le"
+date: today
+format:
+  html:
+    code-fold: true
+    toc: true
+    theme: cosmo
+    execute:
+      eval: false
+      echo: true
+jupyter: python3
+---
+
+## Project Results
+
+This is a learning project that demonstrates end-to-end machine learning development.
+
+## What I Built
+
+**Machine Learning Model:**
+- CNN trained on PlantVillage potato disease dataset
+- Classifies images into 3 categories: Early Blight, Late Blight, Healthy
+- Built with TensorFlow/Keras
+
+**Backend API:**
+- FastAPI application that serves the model
+- Handles image upload and preprocessing
+- Returns predictions with confidence scores
+
+**Frontend Application:**
+- React app with Material-UI components
+- Drag-and-drop image upload interface
+- Displays classification results
+
+**Documentation:**
+- Professional documentation website built with Quarto
+- Demonstrates technical writing and documentation skills
+
+## Skills Demonstrated
+
+- **Machine Learning**: CNN training, image classification, TensorFlow
+- **Backend Development**: FastAPI, Python, API design
+- **Frontend Development**: React, Material-UI, JavaScript
+- **Documentation**: Quarto, Markdown, technical writing
+- **Project Organization**: Git, file structure, dependencies
+
+## Key Files
+
+**Training Code**: `training/training.ipynb` - Jupyter notebook with CNN training
+**API Code**: `api/main.py` - FastAPI backend serving the model  
+**Frontend**: `frontend/src/` - React application with image upload
+**Model**: `models/1/potatoes.h5` - Trained TensorFlow model
+
+## Technologies Used
+
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| Model Training | TensorFlow/Keras | CNN image classification |
+| Backend API | FastAPI | Serve model predictions |
+| Frontend | React + Material-UI | User interface |
+| Documentation | Quarto | Professional docs |
+| Data | PlantVillage Dataset | Potato disease images |
+
+## Learning Outcomes
+
+This project helped me learn:
+
+- **CNN Architecture**: How to design and train convolutional neural networks
+- **Image Classification**: Working with image datasets and preprocessing
+- **API Development**: Building REST APIs with FastAPI
+- **React Development**: Creating user interfaces with modern web technologies
+- **Full-stack Integration**: Connecting ML models with web applications
+- **Documentation**: Professional project documentation with Quarto
+
+## Next Steps
+
+To improve this project, I could:
+- Collect more diverse training data
+- Experiment with transfer learning
+- Add data augmentation techniques
+- Improve the frontend user experience
+- Deploy to cloud platforms

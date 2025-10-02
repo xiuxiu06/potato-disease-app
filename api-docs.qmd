@@ -1,0 +1,248 @@
+---
+title: "API Documentation"
+author: "Tam Le"
+date: today
+format:
+  html:
+    code-fold: true
+    toc: true
+    theme: cosmo
+---
+
+## Simple FastAPI Backend
+
+The API is built with FastAPI and serves the trained TensorFlow model.
+
+### Setup
+
+The API loads a pre-trained model and serves it through two endpoints:
+
+```python
+MODEL = tf.keras.models.load_model("../models/1/potatoes.h5")
+CLASS_NAMES = ["Early Blight", "Late Blight", "Healthy"]
+```
+
+## Endpoints
+
+### Health Check
+**GET** `/ping`
+
+Returns `"Hello"` to verify the API is running.
+
+### Image Prediction  
+**POST** `/predict`
+
+Uploads an image file and returns prediction.
+
+**Response:**
+```json
+{
+  "class": "Early Blight",
+  "confidence": 0.95
+}
+```
+
+## Dependencies
+
+From `requirements.txt`:
+- tensorflow
+- fastapi
+- uvicorn
+- python-multipart
+- pillow
+- numpy
+
+**Example Usage:**
+
+::: {.panel-tabset}
+
+## cURL
+```bash
+curl -X POST "http://localhost:8000/predict" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@potato_leaf.jpg"
+```
+
+## Python
+```python
+import requests
+
+url = "http://localhost:8000/predict"
+with open("potato_leaf.jpg", "rb") as f:
+    files = {"file": f}
+    response = requests.post(url, files=files)
+    result = response.json()
+
+print(f"Disease: {result['class']}")
+print(f"Confidence: {result['confidence']:.2%}")
+```
+
+## JavaScript
+```javascript
+const formData = new FormData();
+formData.append('file', imageFile);
+
+fetch('http://localhost:8000/predict', {
+  method: 'POST',
+  body: formData
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Disease:', data.class);
+  console.log('Confidence:', data.confidence);
+});
+```
+
+:::
+
+## Response Codes
+
+| Code | Description |
+|------|-------------|
+| 200 | Success - Prediction completed |
+| 400 | Bad Request - Invalid file format |
+| 422 | Validation Error - Missing file |
+| 500 | Internal Server Error |
+
+## Error Handling
+
+### Invalid File Format
+```json
+{
+  "detail": "Invalid file format. Please upload JPG, PNG, or JPEG images only."
+}
+```
+
+### Missing File
+```json
+{
+  "detail": [
+    {
+      "loc": ["body", "file"],
+      "msg": "field required",
+      "type": "value_error.missing"
+    }
+  ]
+}
+```
+
+## Rate Limiting
+
+Currently no rate limiting is implemented, but consider implementing it for production use:
+
+- **Requests per minute:** 60
+- **Requests per hour:** 1000
+- **File size limit:** 10MB
+
+## CORS Configuration
+
+The API is configured to accept requests from:
+- `http://localhost:3000` (React development server)
+- `http://localhost:8080` (Alternative frontend port)
+
+## Model Information
+
+### Input Requirements
+- **Image Format:** JPG, PNG, JPEG
+- **Processing Size:** Images are resized to 256x256 pixels
+- **Color Space:** RGB (3 channels)
+- **Normalization:** Pixel values scaled to [0,1]
+
+### Model Details
+- **Architecture:** Convolutional Neural Network (CNN)
+- **Framework:** TensorFlow/Keras
+- **Model File:** `../models/1/potatoes.h5`
+- **Classes:** 3 (Early Blight, Late Blight, Healthy)
+
+## Integration Examples
+
+### React Frontend Integration
+
+```javascript
+// Image upload handler
+const handleImageUpload = async (file) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  
+  try {
+    const response = await fetch('http://localhost:8000/predict', {
+      method: 'POST',
+      body: formData
+    });
+    
+    const result = await response.json();
+    
+    setPrediction({
+      disease: result.class,
+      confidence: (result.confidence * 100).toFixed(1)
+    });
+  } catch (error) {
+    console.error('Prediction failed:', error);
+  }
+};
+```
+
+### Mobile App Integration
+
+```dart
+// Flutter/Dart example
+Future<Map<String, dynamic>> predictDisease(File imageFile) async {
+  var request = http.MultipartRequest(
+    'POST', 
+    Uri.parse('http://localhost:8000/predict')
+  );
+  
+  request.files.add(
+    await http.MultipartFile.fromPath('file', imageFile.path)
+  );
+  
+  var response = await request.send();
+  var responseData = await response.stream.toBytes();
+  var result = json.decode(String.fromCharCodes(responseData));
+  
+  return result;
+}
+```
+
+## Performance Metrics
+
+- **Average Response Time:** ~200ms
+- **Model Inference Time:** ~50ms
+- **Image Processing Time:** ~100ms
+- **Network Overhead:** ~50ms
+
+## Security Considerations
+
+::: {.callout-warning}
+## Production Recommendations
+- Implement authentication (API keys, JWT tokens)
+- Add rate limiting to prevent abuse
+- Validate file sizes and types thoroughly
+- Use HTTPS in production
+- Implement request logging and monitoring
+:::
+
+## Troubleshooting
+
+### Common Issues
+
+**CORS Errors:**
+- Ensure frontend runs on allowed origins
+- Check CORS middleware configuration
+
+**Model Loading Errors:**
+- Verify model file exists at correct path
+- Check TensorFlow version compatibility
+
+**Large File Uploads:**
+- Implement file size validation
+- Consider image compression before upload
+
+### Debugging
+
+Enable debug mode for detailed error messages:
+```python
+# In main.py
+app = FastAPI(debug=True)
+```

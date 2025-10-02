@@ -1,0 +1,72 @@
+---
+title: "Training Notebook"
+author: "Tam Le"
+date: today
+format:
+  html:
+    code-fold: show
+    toc: true
+    theme: cosmo
+    execute:
+      eval: false
+      echo: true
+---
+
+## Training Code Overview
+
+This shows the key parts of the model training process from `training/training.ipynb`.
+
+### Basic Setup
+```{python}
+import tensorflow as tf
+from tensorflow.keras import models, layers
+import matplotlib.pyplot as plt
+
+IMAGE_SIZE = 256
+BATCH_SIZE = 32
+CHANNELS = 3
+EPOCHS = 50
+```
+
+### Load Dataset
+```{python}
+dataset = tf.keras.preprocessing.image_dataset_from_directory(
+    "PlantVillage",
+    shuffle = True,
+    image_size = (IMAGE_SIZE, IMAGE_SIZE),
+    batch_size = BATCH_SIZE
+)
+
+class_names = dataset.class_names  # ["Early Blight", "Late Blight", "Healthy"]
+```
+
+### Data Splitting
+```{python}
+train_size = 0.8
+train_ds = dataset.take(54)
+test_ds = dataset.skip(54)
+```
+
+### Model Architecture
+```{python}
+model = models.Sequential([
+    # Preprocessing
+    layers.Rescaling(1./255),
+    
+    # CNN layers
+    layers.Conv2D(32, (3,3), activation='relu'),
+    layers.MaxPooling2D((2,2)),
+    layers.Conv2D(64, (3,3), activation='relu'), 
+    layers.MaxPooling2D((2,2)),
+    layers.Conv2D(128, (3,3), activation='relu'),
+    layers.MaxPooling2D((2,2)),
+    
+    # Classification layers
+    layers.Flatten(),
+    layers.Dropout(0.5),
+    layers.Dense(128, activation='relu'),
+    layers.Dense(len(class_names), activation='softmax')
+])
+```
+
+The complete training code is in the Jupyter notebook at `training/training.ipynb`.

@@ -1,0 +1,28 @@
+# Quarto output
+_site/
+/.quarto/
+**/*.quarto_ipynb
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Temporary files created during setup
+check_python.py
+_quarto-python.json
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.venv
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

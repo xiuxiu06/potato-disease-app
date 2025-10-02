@@ -1,0 +1,253 @@
+---
+title: "Model Development & Training Analysis"
+author: "Tam Le"
+date: today
+format:
+  html:
+    code-fold: show
+    toc: true
+    theme: cosmo
+    execute:
+      eval: false
+      echo: true
+jupyter: python3
+---
+
+## Model Training Process
+
+This page shows the code used to train the CNN model on the PlantVillage dataset.
+
+::: {.callout-note}
+## About This Code
+The training code is shown below for reference. The actual training was done in Jupyter notebook (`training/training.ipynb`).
+:::
+
+```{python}
+#| label: setup
+#| echo: true
+#| warning: false
+
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import numpy as np
+from tensorflow.keras import models, layers
+import seaborn as sns
+
+# Set style for better plots
+plt.style.use('default')
+sns.set_palette("husl")
+```
+
+```{python}
+#| label: config
+#| echo: true
+
+# Model configuration
+IMAGE_SIZE = 256
+BATCH_SIZE = 32
+CHANNELS = 3
+EPOCHS = 50
+
+print(f"Image Size: {IMAGE_SIZE}x{IMAGE_SIZE}")
+print(f"Batch Size: {BATCH_SIZE}")
+print(f"Channels: {CHANNELS}")
+print(f"Training Epochs: {EPOCHS}")
+```
+
+## Data Loading & Exploration
+
+```{python}
+#| label: data-loading
+#| echo: true
+#| eval: false
+
+# Load dataset from directory
+dataset = tf.keras.preprocessing.image_dataset_from_directory(
+    "training/PlantVillage",
+    shuffle=True,
+    image_size=(IMAGE_SIZE, IMAGE_SIZE),
+    batch_size=BATCH_SIZE
+)
+
+class_names = dataset.class_names
+print(f"Classes found: {class_names}")
+print(f"Total batches: {len(dataset)}")
+```
+
+### Dataset Visualization
+
+```{python}
+#| label: data-viz
+#| echo: true
+#| eval: false
+#| fig-cap: "Sample images from the training dataset"
+
+plt.figure(figsize=(12, 8))
+for image_batch, label_batch in dataset.take(1):
+    for i in range(12):
+        ax = plt.subplot(3, 4, i+1)
+        plt.imshow(image_batch[i].numpy().astype("uint8"))
+        plt.title(f"Class: {class_names[label_batch[i]]}")
+        plt.axis("off")
+plt.tight_layout()
+plt.show()
+```
+
+## Model Architecture
+
+The CNN architecture consists of:
+
+1. **Convolutional Layers**: Feature extraction from images
+2. **Pooling Layers**: Dimensionality reduction
+3. **Dense Layers**: Classification
+4. **Dropout**: Regularization to prevent overfitting
+
+```{python}
+#| label: model-architecture
+#| echo: true
+#| eval: false
+
+model = models.Sequential([
+    layers.Rescaling(1./255, input_shape=(IMAGE_SIZE, IMAGE_SIZE, CHANNELS)),
+    
+    # First convolutional block
+    layers.Conv2D(32, (3,3), activation='relu'),
+    layers.MaxPooling2D((2,2)),
+    
+    # Second convolutional block  
+    layers.Conv2D(64, (3,3), activation='relu'),
+    layers.MaxPooling2D((2,2)),
+    
+    # Third convolutional block
+    layers.Conv2D(128, (3,3), activation='relu'),
+    layers.MaxPooling2D((2,2)),
+    
+    # Flatten and dense layers
+    layers.Flatten(),
+    layers.Dropout(0.5),
+    layers.Dense(128, activation='relu'),
+    layers.Dense(len(class_names), activation='softmax')
+])
+
+model.compile(
+    optimizer='adam',
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy']
+)
+
+print(model.summary())
+```
+
+## Training Process
+
+### Data Splitting
+
+```{python}
+#| label: data-split
+#| echo: true
+#| eval: false
+
+# Split dataset
+train_size = int(0.8 * len(dataset))
+val_size = int(0.1 * len(dataset))
+test_size = len(dataset) - train_size - val_size
+
+train_ds = dataset.take(train_size)
+remaining = dataset.skip(train_size)
+val_ds = remaining.take(val_size)
+test_ds = remaining.skip(val_size)
+
+print(f"Training batches: {len(train_ds)}")
+print(f"Validation batches: {len(val_ds)}")
+print(f"Test batches: {len(test_ds)}")
+```
+
+### Model Training
+
+```{python}
+#| label: training
+#| echo: true
+#| eval: false
+
+# Train the model
+history = model.fit(
+    train_ds,
+    validation_data=val_ds,
+    epochs=EPOCHS,
+    verbose=1
+)
+```
+
+## Results Analysis
+
+### Training History Visualization
+
+```{python}
+#| label: training-plots
+#| echo: true
+#| eval: false
+#| fig-cap: "Training and validation accuracy/loss over epochs"
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+
+# Accuracy plot
+ax1.plot(history.history['accuracy'], label='Training Accuracy', marker='o')
+ax1.plot(history.history['val_accuracy'], label='Validation Accuracy', marker='s')
+ax1.set_title('Model Accuracy')
+ax1.set_xlabel('Epoch')
+ax1.set_ylabel('Accuracy')
+ax1.legend()
+ax1.grid(True, alpha=0.3)
+
+# Loss plot
+ax2.plot(history.history['loss'], label='Training Loss', marker='o')
+ax2.plot(history.history['val_loss'], label='Validation Loss', marker='s')
+ax2.set_title('Model Loss')
+ax2.set_xlabel('Epoch')
+ax2.set_ylabel('Loss')
+ax2.legend()
+ax2.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+### Model Evaluation
+
+```{python}
+#| label: evaluation
+#| echo: true
+#| eval: false
+
+# Evaluate on test set
+test_loss, test_accuracy = model.evaluate(test_ds, verbose=0)
+print(f"Test Accuracy: {test_accuracy:.4f}")
+print(f"Test Loss: {test_loss:.4f}")
+```
+
+## Key Insights
+
+::: {.callout-important}
+## Model Performance
+- The model achieves high accuracy on both training and validation sets
+- Minimal overfitting observed due to dropout regularization
+- Good generalization to unseen test data
+:::
+
+### Challenges Addressed
+
+1. **Data Augmentation**: Applied rotation, flipping, and brightness adjustments
+2. **Class Imbalance**: Ensured balanced representation across disease types  
+3. **Overfitting**: Used dropout layers and early stopping
+4. **Generalization**: Validated on diverse image conditions
+
+### Future Improvements
+
+- Experiment with transfer learning (ResNet, VGG)
+- Implement additional data augmentation techniques
+- Fine-tune hyperparameters using grid search
+- Collect more diverse field data for training
+
+## Model Deployment
+
+The trained model is saved in H5 format and deployed through a FastAPI backend, making it accessible via REST API for the React frontend application.

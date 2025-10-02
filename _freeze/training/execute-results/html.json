@@ -1,0 +1,12 @@
+{
+  "hash": "bd23e6324c08f3774a8c9da2c713fcf0",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Training Notebook\"\nauthor: \"Tam Le\"\ndate: today\nformat:\n  html:\n    code-fold: show\n    toc: true\n    theme: cosmo\n    execute:\n      eval: false\n      echo: true\n---\n\n## Training Code Overview\n\nThis shows the key parts of the model training process from `training/training.ipynb`.\n\n### Basic Setup\n\n::: {#5981e418 .cell execution_count=1}\n``` {.python .cell-code}\nimport tensorflow as tf\nfrom tensorflow.keras import models, layers\nimport matplotlib.pyplot as plt\n\nIMAGE_SIZE = 256\nBATCH_SIZE = 32\nCHANNELS = 3\nEPOCHS = 50\n```\n:::\n\n\n### Load Dataset\n\n::: {#1d083bdd .cell execution_count=2}\n``` {.python .cell-code}\ndataset = tf.keras.preprocessing.image_dataset_from_directory(\n    \"PlantVillage\",\n    shuffle = True,\n    image_size = (IMAGE_SIZE, IMAGE_SIZE),\n    batch_size = BATCH_SIZE\n)\n\nclass_names = dataset.class_names  # [\"Early Blight\", \"Late Blight\", \"Healthy\"]\n```\n:::\n\n\n### Data Splitting\n\n::: {#99004651 .cell execution_count=3}\n``` {.python .cell-code}\ntrain_size = 0.8\ntrain_ds = dataset.take(54)\ntest_ds = dataset.skip(54)\n```\n:::\n\n\n### Model Architecture\n\n::: {#af5a18e8 .cell execution_count=4}\n``` {.python .cell-code}\nmodel = models.Sequential([\n    # Preprocessing\n    layers.Rescaling(1./255),\n    \n    # CNN layers\n    layers.Conv2D(32, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    layers.Conv2D(64, (3,3), activation='relu'), \n    layers.MaxPooling2D((2,2)),\n    layers.Conv2D(128, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    \n    # Classification layers\n    layers.Flatten(),\n    layers.Dropout(0.5),\n    layers.Dense(128, activation='relu'),\n    layers.Dense(len(class_names), activation='softmax')\n])\n```\n:::\n\n\nThe complete training code is in the Jupyter notebook at `training/training.ipynb`.\n\n",
+    "supporting": [
+      "training_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

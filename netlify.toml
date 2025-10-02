@@ -1,0 +1,21 @@
+# Netlify Configuration for React Frontend
+[build]
+  base = "frontend/"
+  command = "npm run build"
+  publish = "build/"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirect all routes to index.html for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# API proxy to your backend (when deployed)
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-backend-url.com/:splat"
+  status = 200
+  force = true

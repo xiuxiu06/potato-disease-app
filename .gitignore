@@ -3,6 +3,9 @@ _site/
 /.quarto/
 **/*.quarto_ipynb
 
+# React build (generated during deployment)
+app/
+
 # Python
 __pycache__/
 *.py[cod]

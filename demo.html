@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -172,24 +137,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#live-application-demonstration" id="toc-live-application-demonstration" class="nav-link active" data-scroll-target="#live-application-demonstration">Live Application Demonstration</a>
+  <li><a href="#application-demo" id="toc-application-demo" class="nav-link active" data-scroll-target="#application-demo">Application Demo</a>
   <ul class="collapse">
-  <li><a href="#demo-video-potato-ai" id="toc-demo-video-potato-ai" class="nav-link" data-scroll-target="#demo-video-potato-ai">Demo Video: “potato-ai”</a></li>
+  <li><a href="#demo-video" id="toc-demo-video" class="nav-link" data-scroll-target="#demo-video">Demo Video</a></li>
   </ul></li>
-  <li><a href="#what-the-demo-shows" id="toc-what-the-demo-shows" class="nav-link" data-scroll-target="#what-the-demo-shows">What the Demo Shows</a>
-  <ul class="collapse">
-  <li><a href="#complete-workflow" id="toc-complete-workflow" class="nav-link" data-scroll-target="#complete-workflow">🔄 <strong>Complete Workflow</strong></a></li>
-  <li><a href="#model-performance" id="toc-model-performance" class="nav-link" data-scroll-target="#model-performance">🧠 <strong>Model Performance</strong></a></li>
-  <li><a href="#disease-detection" id="toc-disease-detection" class="nav-link" data-scroll-target="#disease-detection">🎯 <strong>Disease Detection</strong></a></li>
-  </ul></li>
-  <li><a href="#technical-implementation" id="toc-technical-implementation" class="nav-link" data-scroll-target="#technical-implementation">Technical Implementation</a>
-  <ul class="collapse">
-  <li><a href="#frontend-features-demonstrated" id="toc-frontend-features-demonstrated" class="nav-link" data-scroll-target="#frontend-features-demonstrated">Frontend Features Demonstrated</a></li>
-  <li><a href="#backend-processing-shown" id="toc-backend-processing-shown" class="nav-link" data-scroll-target="#backend-processing-shown">Backend Processing Shown</a></li>
-  </ul></li>
-  <li><a href="#system-architecture-in-action" id="toc-system-architecture-in-action" class="nav-link" data-scroll-target="#system-architecture-in-action">System Architecture in Action</a></li>
-  <li><a href="#key-takeaways-from-demo" id="toc-key-takeaways-from-demo" class="nav-link" data-scroll-target="#key-takeaways-from-demo">Key Takeaways from Demo</a></li>
-  <li><a href="#future-enhancements" id="toc-future-enhancements" class="nav-link" data-scroll-target="#future-enhancements">Future Enhancements</a></li>
+  <li><a href="#what-the-demo-shows" id="toc-what-the-demo-shows" class="nav-link" data-scroll-target="#what-the-demo-shows">What the Demo Shows</a></li>
+  <li><a href="#technical-stack" id="toc-technical-stack" class="nav-link" data-scroll-target="#technical-stack">Technical Stack</a></li>
   </ul>
 </nav>
     </div>
@@ -227,124 +180,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="live-application-demonstration" class="level2">
-<h2 class="anchored" data-anchor-id="live-application-demonstration">Live Application Demonstration</h2>
-<p>This video shows the potato disease detection system in action, demonstrating the complete workflow from image upload to disease prediction.</p>
-<section id="demo-video-potato-ai" class="level3">
-<h3 class="anchored" data-anchor-id="demo-video-potato-ai">Demo Video: “potato-ai”</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>How to Add Your Video
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Replace this section with your video. You can embed it using one of these methods:</p>
-<p><strong>Option 1: YouTube/Vimeo Embed</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> width</span><span class="op">=</span><span class="st">"560"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"315"</span><span class="ot"> </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ot">        src</span><span class="op">=</span><span class="st">"https://www.youtube.com/embed/YOUR_VIDEO_ID"</span><span class="ot"> </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ot">        title</span><span class="op">=</span><span class="st">"Potato Disease Detection Demo"</span><span class="ot"> </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ot">        frameborder</span><span class="op">=</span><span class="st">"0"</span><span class="ot"> </span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ot">        allow</span><span class="op">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span><span class="ot"> </span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ot">        allowfullscreen</span><span class="dt">&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Option 2: Local Video File</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">video</span><span class="ot"> width</span><span class="op">=</span><span class="st">"100%"</span><span class="ot"> controls</span><span class="dt">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">source</span><span class="ot"> src</span><span class="op">=</span><span class="st">"potato-ai.mp4"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"video/mp4"</span><span class="dt">&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  Your browser does not support the video tag.</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">video</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Option 3: Video Link</strong> 📹 <a href="link-to-your-video">Watch Demo Video: potato-ai</a></p>
-</div>
-</div>
-</section>
-</section>
-<section id="what-the-demo-shows" class="level2">
-<h2 class="anchored" data-anchor-id="what-the-demo-shows">What the Demo Shows</h2>
-<p>The demonstration covers:</p>
-<section id="complete-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="complete-workflow">🔄 <strong>Complete Workflow</strong></h3>
-<ol type="1">
-<li><strong>Image Upload</strong>: User selects potato leaf image</li>
-<li><strong>Processing</strong>: Image sent to FastAPI backend</li>
-<li><strong>AI Analysis</strong>: CNN model analyzes the image</li>
-<li><strong>Results Display</strong>: Disease classification with confidence score</li>
-</ol>
-</section>
-<section id="model-performance" class="level3">
-<h3 class="anchored" data-anchor-id="model-performance">🧠 <strong>Model Performance</strong></h3>
-<ul>
-<li><strong>Real-time predictions</strong> in under 2 seconds</li>
-<li><strong>Confidence scores</strong> for prediction reliability</li>
-<li><strong>Clean, intuitive interface</strong> built with React and Material-UI</li>
-</ul>
-</section>
-<section id="disease-detection" class="level3">
-<h3 class="anchored" data-anchor-id="disease-detection">🎯 <strong>Disease Detection</strong></h3>
-<p>The system can identify: - <strong>Early Blight</strong>: Early stage fungal infection - <strong>Late Blight</strong>: Advanced fungal infection - <strong>Healthy</strong>: No disease detected</p>
-</section>
-</section>
-<section id="technical-implementation" class="level2">
-<h2 class="anchored" data-anchor-id="technical-implementation">Technical Implementation</h2>
-<section id="frontend-features-demonstrated" class="level3">
-<h3 class="anchored" data-anchor-id="frontend-features-demonstrated">Frontend Features Demonstrated</h3>
-<ul>
-<li><strong>Drag-and-drop</strong> image upload</li>
-<li><strong>Real-time preview</strong> of uploaded images</li>
-<li><strong>Loading states</strong> during processing</li>
-<li><strong>Results visualization</strong> with confidence percentages</li>
-<li><strong>Responsive design</strong> working across devices</li>
-</ul>
-</section>
-<section id="backend-processing-shown" class="level3">
-<h3 class="anchored" data-anchor-id="backend-processing-shown">Backend Processing Shown</h3>
-<ul>
-<li><strong>Image preprocessing</strong> (resize, normalize)</li>
-<li><strong>Model inference</strong> using TensorFlow</li>
-<li><strong>JSON response</strong> with classification results</li>
-<li><strong>Error handling</strong> for invalid uploads</li>
-</ul>
-</section>
-</section>
-<section id="system-architecture-in-action" class="level2">
-<h2 class="anchored" data-anchor-id="system-architecture-in-action">System Architecture in Action</h2>
-<pre class="mermaid"><code>flowchart LR
-    A[User Uploads Image] --&gt; B[React Frontend]
-    B --&gt; C[FastAPI Backend] 
-    C --&gt; D[Image Preprocessing]
-    D --&gt; E[CNN Model Prediction]
-    E --&gt; F[Return Results]
-    F --&gt; G[Display Classification]</code></pre>
-</section>
-<section id="key-takeaways-from-demo" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways-from-demo">Key Takeaways from Demo</h2>
+<section id="application-demo" class="level2">
+<h2 class="anchored" data-anchor-id="application-demo">Application Demo</h2>
+<p>This demo video shows the potato disease detection app running on localhost. Since the backend API is not deployed yet, this demonstrates how the application works locally during development.</p>
+<section id="demo-video" class="level3">
+<h3 class="anchored" data-anchor-id="demo-video">Demo Video</h3>
+<video width="100%" controls="">
+<source src="potato-ai.mp4" type="video/mp4">
+<p>Your browser does not support the video tag. </p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Demonstrated Skills
+<span class="screen-reader-only">Tip</span>About This Demo
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><strong>Full-stack Development</strong>: Complete web application</li>
-<li><strong>Machine Learning Integration</strong>: Real model serving</li>
-<li><strong>User Experience Design</strong>: Intuitive, responsive interface</li>
-<li><strong>API Development</strong>: Clean REST endpoints</li>
-<li><strong>Modern Tech Stack</strong>: React, FastAPI, TensorFlow</li>
-</ul>
+<p>This video shows the application running on localhost during development. The backend will be deployed in the future to make the live version available online.</p>
 </div>
 </div>
+</video></section>
 </section>
-<section id="future-enhancements" class="level2">
-<h2 class="anchored" data-anchor-id="future-enhancements">Future Enhancements</h2>
-<p>The demo also highlights potential improvements: - <strong>Mobile app version</strong> for field use - <strong>Batch processing</strong> for multiple images - <strong>Treatment recommendations</strong> based on disease type - <strong>Disease severity assessment</strong> - <strong>Historical tracking</strong> of plant health</p>
+<section id="what-the-demo-shows" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-demo-shows">What the Demo Shows</h2>
+<p>The video demonstrates the complete workflow:</p>
+<ol type="1">
+<li><strong>Image Upload</strong>: User selects a potato leaf image</li>
+<li><strong>Processing</strong>: React frontend sends image to FastAPI backend</li>
+<li><strong>Model Prediction</strong>: TensorFlow CNN model analyzes the image</li>
+<li><strong>Results</strong>: Displays disease classification (Early Blight, Late Blight, or Healthy)</li>
+</ol>
+</section>
+<section id="technical-stack" class="level2">
+<h2 class="anchored" data-anchor-id="technical-stack">Technical Stack</h2>
+<ul>
+<li><strong>Frontend</strong>: React with Material-UI for clean interface</li>
+<li><strong>Backend</strong>: FastAPI serving the TensorFlow model</li>
+<li><strong>Model</strong>: CNN trained on PlantVillage dataset</li>
+<li><strong>Features</strong>: Drag-and-drop upload, real-time results</li>
+</ul>
 <hr>
-<p><em>This demonstration showcases the practical application of machine learning in agriculture, combining technical implementation with real-world usability.</em></p>
+<p><em>Note: This shows the application running locally. The backend API will be deployed online in the future.</em></p>
 
 
 </section>

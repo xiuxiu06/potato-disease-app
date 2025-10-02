@@ -249,49 +249,28 @@
     "href": "demo.html",
     "title": "Application Demo",
     "section": "",
-    "text": "This video shows the potato disease detection system in action, demonstrating the complete workflow from image upload to disease prediction.\n\n\n\n\n\n\n\n\nNoteHow to Add Your Video\n\n\n\nReplace this section with your video. You can embed it using one of these methods:\nOption 1: YouTube/Vimeo Embed\n&lt;iframe width=\"560\" height=\"315\" \n        src=\"https://www.youtube.com/embed/YOUR_VIDEO_ID\" \n        title=\"Potato Disease Detection Demo\" \n        frameborder=\"0\" \n        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" \n        allowfullscreen&gt;\n&lt;/iframe&gt;\nOption 2: Local Video File\n&lt;video width=\"100%\" controls&gt;\n  &lt;source src=\"potato-ai.mp4\" type=\"video/mp4\"&gt;\n  Your browser does not support the video tag.\n&lt;/video&gt;\nOption 3: Video Link 📹 Watch Demo Video: potato-ai"
+    "text": "This demo video shows the potato disease detection app running on localhost. Since the backend API is not deployed yet, this demonstrates how the application works locally during development.\n\n\n\n\nYour browser does not support the video tag. \n\n\n\n\n\n\nTipAbout This Demo\n\n\n\nThis video shows the application running on localhost during development. The backend will be deployed in the future to make the live version available online."
   },
   {
-    "objectID": "demo.html#live-application-demonstration",
-    "href": "demo.html#live-application-demonstration",
+    "objectID": "demo.html#application-demo",
+    "href": "demo.html#application-demo",
     "title": "Application Demo",
     "section": "",
-    "text": "This video shows the potato disease detection system in action, demonstrating the complete workflow from image upload to disease prediction.\n\n\n\n\n\n\n\n\nNoteHow to Add Your Video\n\n\n\nReplace this section with your video. You can embed it using one of these methods:\nOption 1: YouTube/Vimeo Embed\n&lt;iframe width=\"560\" height=\"315\" \n        src=\"https://www.youtube.com/embed/YOUR_VIDEO_ID\" \n        title=\"Potato Disease Detection Demo\" \n        frameborder=\"0\" \n        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" \n        allowfullscreen&gt;\n&lt;/iframe&gt;\nOption 2: Local Video File\n&lt;video width=\"100%\" controls&gt;\n  &lt;source src=\"potato-ai.mp4\" type=\"video/mp4\"&gt;\n  Your browser does not support the video tag.\n&lt;/video&gt;\nOption 3: Video Link 📹 Watch Demo Video: potato-ai"
+    "text": "This demo video shows the potato disease detection app running on localhost. Since the backend API is not deployed yet, this demonstrates how the application works locally during development.\n\n\n\n\nYour browser does not support the video tag. \n\n\n\n\n\n\nTipAbout This Demo\n\n\n\nThis video shows the application running on localhost during development. The backend will be deployed in the future to make the live version available online."
   },
   {
     "objectID": "demo.html#what-the-demo-shows",
     "href": "demo.html#what-the-demo-shows",
     "title": "Application Demo",
     "section": "What the Demo Shows",
-    "text": "What the Demo Shows\nThe demonstration covers:\n\n🔄 Complete Workflow\n\nImage Upload: User selects potato leaf image\nProcessing: Image sent to FastAPI backend\nAI Analysis: CNN model analyzes the image\nResults Display: Disease classification with confidence score\n\n\n\n🧠 Model Performance\n\nReal-time predictions in under 2 seconds\nConfidence scores for prediction reliability\nClean, intuitive interface built with React and Material-UI\n\n\n\n🎯 Disease Detection\nThe system can identify: - Early Blight: Early stage fungal infection - Late Blight: Advanced fungal infection - Healthy: No disease detected"
+    "text": "What the Demo Shows\nThe video demonstrates the complete workflow:\n\nImage Upload: User selects a potato leaf image\nProcessing: React frontend sends image to FastAPI backend\nModel Prediction: TensorFlow CNN model analyzes the image\nResults: Displays disease classification (Early Blight, Late Blight, or Healthy)"
   },
   {
-    "objectID": "demo.html#technical-implementation",
-    "href": "demo.html#technical-implementation",
+    "objectID": "demo.html#technical-stack",
+    "href": "demo.html#technical-stack",
     "title": "Application Demo",
-    "section": "Technical Implementation",
-    "text": "Technical Implementation\n\nFrontend Features Demonstrated\n\nDrag-and-drop image upload\nReal-time preview of uploaded images\nLoading states during processing\nResults visualization with confidence percentages\nResponsive design working across devices\n\n\n\nBackend Processing Shown\n\nImage preprocessing (resize, normalize)\nModel inference using TensorFlow\nJSON response with classification results\nError handling for invalid uploads"
-  },
-  {
-    "objectID": "demo.html#system-architecture-in-action",
-    "href": "demo.html#system-architecture-in-action",
-    "title": "Application Demo",
-    "section": "System Architecture in Action",
-    "text": "System Architecture in Action\nflowchart LR\n    A[User Uploads Image] --&gt; B[React Frontend]\n    B --&gt; C[FastAPI Backend] \n    C --&gt; D[Image Preprocessing]\n    D --&gt; E[CNN Model Prediction]\n    E --&gt; F[Return Results]\n    F --&gt; G[Display Classification]"
-  },
-  {
-    "objectID": "demo.html#key-takeaways-from-demo",
-    "href": "demo.html#key-takeaways-from-demo",
-    "title": "Application Demo",
-    "section": "Key Takeaways from Demo",
-    "text": "Key Takeaways from Demo\n\n\n\n\n\n\nTipDemonstrated Skills\n\n\n\n\nFull-stack Development: Complete web application\nMachine Learning Integration: Real model serving\nUser Experience Design: Intuitive, responsive interface\nAPI Development: Clean REST endpoints\nModern Tech Stack: React, FastAPI, TensorFlow"
-  },
-  {
-    "objectID": "demo.html#future-enhancements",
-    "href": "demo.html#future-enhancements",
-    "title": "Application Demo",
-    "section": "Future Enhancements",
-    "text": "Future Enhancements\nThe demo also highlights potential improvements: - Mobile app version for field use - Batch processing for multiple images - Treatment recommendations based on disease type - Disease severity assessment - Historical tracking of plant health\n\nThis demonstration showcases the practical application of machine learning in agriculture, combining technical implementation with real-world usability."
+    "section": "Technical Stack",
+    "text": "Technical Stack\n\nFrontend: React with Material-UI for clean interface\nBackend: FastAPI serving the TensorFlow model\nModel: CNN trained on PlantVillage dataset\nFeatures: Drag-and-drop upload, real-time results\n\n\nNote: This shows the application running locally. The backend API will be deployed online in the future."
   },
   {
     "objectID": "api-docs.html",

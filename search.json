@@ -1,0 +1,457 @@
+[
+  {
+    "objectID": "training.html",
+    "href": "training.html",
+    "title": "Training Notebook",
+    "section": "",
+    "text": "This shows the key parts of the model training process from training/training.ipynb.\n\n\n\n\nCode\nimport tensorflow as tf\nfrom tensorflow.keras import models, layers\nimport matplotlib.pyplot as plt\n\nIMAGE_SIZE = 256\nBATCH_SIZE = 32\nCHANNELS = 3\nEPOCHS = 50\n\n\n\n\n\n\n\nCode\ndataset = tf.keras.preprocessing.image_dataset_from_directory(\n    \"PlantVillage\",\n    shuffle = True,\n    image_size = (IMAGE_SIZE, IMAGE_SIZE),\n    batch_size = BATCH_SIZE\n)\n\nclass_names = dataset.class_names  # [\"Early Blight\", \"Late Blight\", \"Healthy\"]\n\n\n\n\n\n\n\nCode\ntrain_size = 0.8\ntrain_ds = dataset.take(54)\ntest_ds = dataset.skip(54)\n\n\n\n\n\n\n\nCode\nmodel = models.Sequential([\n    # Preprocessing\n    layers.Rescaling(1./255),\n    \n    # CNN layers\n    layers.Conv2D(32, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    layers.Conv2D(64, (3,3), activation='relu'), \n    layers.MaxPooling2D((2,2)),\n    layers.Conv2D(128, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    \n    # Classification layers\n    layers.Flatten(),\n    layers.Dropout(0.5),\n    layers.Dense(128, activation='relu'),\n    layers.Dense(len(class_names), activation='softmax')\n])\n\n\nThe complete training code is in the Jupyter notebook at training/training.ipynb."
+  },
+  {
+    "objectID": "training.html#training-code-overview",
+    "href": "training.html#training-code-overview",
+    "title": "Training Notebook",
+    "section": "",
+    "text": "This shows the key parts of the model training process from training/training.ipynb.\n\n\n\n\nCode\nimport tensorflow as tf\nfrom tensorflow.keras import models, layers\nimport matplotlib.pyplot as plt\n\nIMAGE_SIZE = 256\nBATCH_SIZE = 32\nCHANNELS = 3\nEPOCHS = 50\n\n\n\n\n\n\n\nCode\ndataset = tf.keras.preprocessing.image_dataset_from_directory(\n    \"PlantVillage\",\n    shuffle = True,\n    image_size = (IMAGE_SIZE, IMAGE_SIZE),\n    batch_size = BATCH_SIZE\n)\n\nclass_names = dataset.class_names  # [\"Early Blight\", \"Late Blight\", \"Healthy\"]\n\n\n\n\n\n\n\nCode\ntrain_size = 0.8\ntrain_ds = dataset.take(54)\ntest_ds = dataset.skip(54)\n\n\n\n\n\n\n\nCode\nmodel = models.Sequential([\n    # Preprocessing\n    layers.Rescaling(1./255),\n    \n    # CNN layers\n    layers.Conv2D(32, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    layers.Conv2D(64, (3,3), activation='relu'), \n    layers.MaxPooling2D((2,2)),\n    layers.Conv2D(128, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    \n    # Classification layers\n    layers.Flatten(),\n    layers.Dropout(0.5),\n    layers.Dense(128, activation='relu'),\n    layers.Dense(len(class_names), activation='softmax')\n])\n\n\nThe complete training code is in the Jupyter notebook at training/training.ipynb."
+  },
+  {
+    "objectID": "results.html",
+    "href": "results.html",
+    "title": "Results & Performance Analysis",
+    "section": "",
+    "text": "This is a learning project that demonstrates end-to-end machine learning development."
+  },
+  {
+    "objectID": "results.html#project-results",
+    "href": "results.html#project-results",
+    "title": "Results & Performance Analysis",
+    "section": "",
+    "text": "This is a learning project that demonstrates end-to-end machine learning development."
+  },
+  {
+    "objectID": "results.html#what-i-built",
+    "href": "results.html#what-i-built",
+    "title": "Results & Performance Analysis",
+    "section": "What I Built",
+    "text": "What I Built\nMachine Learning Model: - CNN trained on PlantVillage potato disease dataset - Classifies images into 3 categories: Early Blight, Late Blight, Healthy - Built with TensorFlow/Keras\nBackend API: - FastAPI application that serves the model - Handles image upload and preprocessing - Returns predictions with confidence scores\nFrontend Application: - React app with Material-UI components - Drag-and-drop image upload interface - Displays classification results\nDocumentation: - Professional documentation website built with Quarto - Demonstrates technical writing and documentation skills"
+  },
+  {
+    "objectID": "results.html#skills-demonstrated",
+    "href": "results.html#skills-demonstrated",
+    "title": "Results & Performance Analysis",
+    "section": "Skills Demonstrated",
+    "text": "Skills Demonstrated\n\nMachine Learning: CNN training, image classification, TensorFlow\nBackend Development: FastAPI, Python, API design\nFrontend Development: React, Material-UI, JavaScript\nDocumentation: Quarto, Markdown, technical writing\nProject Organization: Git, file structure, dependencies"
+  },
+  {
+    "objectID": "results.html#key-files",
+    "href": "results.html#key-files",
+    "title": "Results & Performance Analysis",
+    "section": "Key Files",
+    "text": "Key Files\nTraining Code: training/training.ipynb - Jupyter notebook with CNN training API Code: api/main.py - FastAPI backend serving the model\nFrontend: frontend/src/ - React application with image upload Model: models/1/potatoes.h5 - Trained TensorFlow model"
+  },
+  {
+    "objectID": "results.html#technologies-used",
+    "href": "results.html#technologies-used",
+    "title": "Results & Performance Analysis",
+    "section": "Technologies Used",
+    "text": "Technologies Used\n\n\n\nComponent\nTechnology\nPurpose\n\n\n\n\nModel Training\nTensorFlow/Keras\nCNN image classification\n\n\nBackend API\nFastAPI\nServe model predictions\n\n\nFrontend\nReact + Material-UI\nUser interface\n\n\nDocumentation\nQuarto\nProfessional docs\n\n\nData\nPlantVillage Dataset\nPotato disease images"
+  },
+  {
+    "objectID": "results.html#learning-outcomes",
+    "href": "results.html#learning-outcomes",
+    "title": "Results & Performance Analysis",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nThis project helped me learn:\n\nCNN Architecture: How to design and train convolutional neural networks\nImage Classification: Working with image datasets and preprocessing\nAPI Development: Building REST APIs with FastAPI\nReact Development: Creating user interfaces with modern web technologies\nFull-stack Integration: Connecting ML models with web applications\nDocumentation: Professional project documentation with Quarto"
+  },
+  {
+    "objectID": "results.html#next-steps",
+    "href": "results.html#next-steps",
+    "title": "Results & Performance Analysis",
+    "section": "Next Steps",
+    "text": "Next Steps\nTo improve this project, I could: - Collect more diverse training data - Experiment with transfer learning - Add data augmentation techniques - Improve the frontend user experience - Deploy to cloud platforms"
+  },
+  {
+    "objectID": "model-analysis.html",
+    "href": "model-analysis.html",
+    "title": "Model Development & Training Analysis",
+    "section": "",
+    "text": "This page shows the code used to train the CNN model on the PlantVillage dataset.\n\n\n\n\n\n\nNoteAbout This Code\n\n\n\nThe training code is shown below for reference. The actual training was done in Jupyter notebook (training/training.ipynb).\n\n\n\n\nCode\nimport tensorflow as tf\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom tensorflow.keras import models, layers\nimport seaborn as sns\n\n# Set style for better plots\nplt.style.use('default')\nsns.set_palette(\"husl\")\n\n\n\n\nCode\n# Model configuration\nIMAGE_SIZE = 256\nBATCH_SIZE = 32\nCHANNELS = 3\nEPOCHS = 50\n\nprint(f\"Image Size: {IMAGE_SIZE}x{IMAGE_SIZE}\")\nprint(f\"Batch Size: {BATCH_SIZE}\")\nprint(f\"Channels: {CHANNELS}\")\nprint(f\"Training Epochs: {EPOCHS}\")"
+  },
+  {
+    "objectID": "model-analysis.html#model-training-process",
+    "href": "model-analysis.html#model-training-process",
+    "title": "Model Development & Training Analysis",
+    "section": "",
+    "text": "This page shows the code used to train the CNN model on the PlantVillage dataset.\n\n\n\n\n\n\nNoteAbout This Code\n\n\n\nThe training code is shown below for reference. The actual training was done in Jupyter notebook (training/training.ipynb).\n\n\n\n\nCode\nimport tensorflow as tf\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom tensorflow.keras import models, layers\nimport seaborn as sns\n\n# Set style for better plots\nplt.style.use('default')\nsns.set_palette(\"husl\")\n\n\n\n\nCode\n# Model configuration\nIMAGE_SIZE = 256\nBATCH_SIZE = 32\nCHANNELS = 3\nEPOCHS = 50\n\nprint(f\"Image Size: {IMAGE_SIZE}x{IMAGE_SIZE}\")\nprint(f\"Batch Size: {BATCH_SIZE}\")\nprint(f\"Channels: {CHANNELS}\")\nprint(f\"Training Epochs: {EPOCHS}\")"
+  },
+  {
+    "objectID": "model-analysis.html#data-loading-exploration",
+    "href": "model-analysis.html#data-loading-exploration",
+    "title": "Model Development & Training Analysis",
+    "section": "Data Loading & Exploration",
+    "text": "Data Loading & Exploration\n\n\nCode\n# Load dataset from directory\ndataset = tf.keras.preprocessing.image_dataset_from_directory(\n    \"training/PlantVillage\",\n    shuffle=True,\n    image_size=(IMAGE_SIZE, IMAGE_SIZE),\n    batch_size=BATCH_SIZE\n)\n\nclass_names = dataset.class_names\nprint(f\"Classes found: {class_names}\")\nprint(f\"Total batches: {len(dataset)}\")\n\n\n\nDataset Visualization\n\n\nCode\nplt.figure(figsize=(12, 8))\nfor image_batch, label_batch in dataset.take(1):\n    for i in range(12):\n        ax = plt.subplot(3, 4, i+1)\n        plt.imshow(image_batch[i].numpy().astype(\"uint8\"))\n        plt.title(f\"Class: {class_names[label_batch[i]]}\")\n        plt.axis(\"off\")\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "model-analysis.html#model-architecture",
+    "href": "model-analysis.html#model-architecture",
+    "title": "Model Development & Training Analysis",
+    "section": "Model Architecture",
+    "text": "Model Architecture\nThe CNN architecture consists of:\n\nConvolutional Layers: Feature extraction from images\nPooling Layers: Dimensionality reduction\nDense Layers: Classification\nDropout: Regularization to prevent overfitting\n\n\n\nCode\nmodel = models.Sequential([\n    layers.Rescaling(1./255, input_shape=(IMAGE_SIZE, IMAGE_SIZE, CHANNELS)),\n    \n    # First convolutional block\n    layers.Conv2D(32, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    \n    # Second convolutional block  \n    layers.Conv2D(64, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    \n    # Third convolutional block\n    layers.Conv2D(128, (3,3), activation='relu'),\n    layers.MaxPooling2D((2,2)),\n    \n    # Flatten and dense layers\n    layers.Flatten(),\n    layers.Dropout(0.5),\n    layers.Dense(128, activation='relu'),\n    layers.Dense(len(class_names), activation='softmax')\n])\n\nmodel.compile(\n    optimizer='adam',\n    loss='sparse_categorical_crossentropy',\n    metrics=['accuracy']\n)\n\nprint(model.summary())"
+  },
+  {
+    "objectID": "model-analysis.html#training-process",
+    "href": "model-analysis.html#training-process",
+    "title": "Model Development & Training Analysis",
+    "section": "Training Process",
+    "text": "Training Process\n\nData Splitting\n\n\nCode\n# Split dataset\ntrain_size = int(0.8 * len(dataset))\nval_size = int(0.1 * len(dataset))\ntest_size = len(dataset) - train_size - val_size\n\ntrain_ds = dataset.take(train_size)\nremaining = dataset.skip(train_size)\nval_ds = remaining.take(val_size)\ntest_ds = remaining.skip(val_size)\n\nprint(f\"Training batches: {len(train_ds)}\")\nprint(f\"Validation batches: {len(val_ds)}\")\nprint(f\"Test batches: {len(test_ds)}\")\n\n\n\n\nModel Training\n\n\nCode\n# Train the model\nhistory = model.fit(\n    train_ds,\n    validation_data=val_ds,\n    epochs=EPOCHS,\n    verbose=1\n)"
+  },
+  {
+    "objectID": "model-analysis.html#results-analysis",
+    "href": "model-analysis.html#results-analysis",
+    "title": "Model Development & Training Analysis",
+    "section": "Results Analysis",
+    "text": "Results Analysis\n\nTraining History Visualization\n\n\nCode\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))\n\n# Accuracy plot\nax1.plot(history.history['accuracy'], label='Training Accuracy', marker='o')\nax1.plot(history.history['val_accuracy'], label='Validation Accuracy', marker='s')\nax1.set_title('Model Accuracy')\nax1.set_xlabel('Epoch')\nax1.set_ylabel('Accuracy')\nax1.legend()\nax1.grid(True, alpha=0.3)\n\n# Loss plot\nax2.plot(history.history['loss'], label='Training Loss', marker='o')\nax2.plot(history.history['val_loss'], label='Validation Loss', marker='s')\nax2.set_title('Model Loss')\nax2.set_xlabel('Epoch')\nax2.set_ylabel('Loss')\nax2.legend()\nax2.grid(True, alpha=0.3)\n\nplt.tight_layout()\nplt.show()\n\n\n\n\nModel Evaluation\n\n\nCode\n# Evaluate on test set\ntest_loss, test_accuracy = model.evaluate(test_ds, verbose=0)\nprint(f\"Test Accuracy: {test_accuracy:.4f}\")\nprint(f\"Test Loss: {test_loss:.4f}\")"
+  },
+  {
+    "objectID": "model-analysis.html#key-insights",
+    "href": "model-analysis.html#key-insights",
+    "title": "Model Development & Training Analysis",
+    "section": "Key Insights",
+    "text": "Key Insights\n\n\n\n\n\n\nImportantModel Performance\n\n\n\n\nThe model achieves high accuracy on both training and validation sets\nMinimal overfitting observed due to dropout regularization\nGood generalization to unseen test data\n\n\n\n\nChallenges Addressed\n\nData Augmentation: Applied rotation, flipping, and brightness adjustments\nClass Imbalance: Ensured balanced representation across disease types\n\nOverfitting: Used dropout layers and early stopping\nGeneralization: Validated on diverse image conditions\n\n\n\nFuture Improvements\n\nExperiment with transfer learning (ResNet, VGG)\nImplement additional data augmentation techniques\nFine-tune hyperparameters using grid search\nCollect more diverse field data for training"
+  },
+  {
+    "objectID": "model-analysis.html#model-deployment",
+    "href": "model-analysis.html#model-deployment",
+    "title": "Model Development & Training Analysis",
+    "section": "Model Deployment",
+    "text": "Model Deployment\nThe trained model is saved in H5 format and deployed through a FastAPI backend, making it accessible via REST API for the React frontend application."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Potato Disease Detection System",
+    "section": "",
+    "text": "This is a simple machine learning project that demonstrates a potato disease detection system. The project includes:\n\nA CNN model trained on the PlantVillage dataset\nA FastAPI backend that serves the model\nA React frontend for uploading images\nDocumentation created with Quarto"
+  },
+  {
+    "objectID": "index.html#project-overview",
+    "href": "index.html#project-overview",
+    "title": "Potato Disease Detection System",
+    "section": "",
+    "text": "This is a simple machine learning project that demonstrates a potato disease detection system. The project includes:\n\nA CNN model trained on the PlantVillage dataset\nA FastAPI backend that serves the model\nA React frontend for uploading images\nDocumentation created with Quarto"
+  },
+  {
+    "objectID": "index.html#what-this-project-shows",
+    "href": "index.html#what-this-project-shows",
+    "title": "Potato Disease Detection System",
+    "section": "What This Project Shows",
+    "text": "What This Project Shows\nThis project demonstrates my ability to: - Build end-to-end ML applications - Create REST APIs with FastAPI - Develop React frontends - Document projects professionally with Quarto - Work with TensorFlow/Keras"
+  },
+  {
+    "objectID": "index.html#system-architecture",
+    "href": "index.html#system-architecture",
+    "title": "Potato Disease Detection System",
+    "section": "System Architecture",
+    "text": "System Architecture\n\n\nCode\nflowchart TD\n    A[Upload Image] --&gt; B[React Frontend]\n    B --&gt; C[FastAPI Backend]\n    C --&gt; D[TensorFlow Model]\n    D --&gt; E[Classification Result]\n    E --&gt; B"
+  },
+  {
+    "objectID": "index.html#technology-stack",
+    "href": "index.html#technology-stack",
+    "title": "Potato Disease Detection System",
+    "section": "Technology Stack",
+    "text": "Technology Stack\nBackend: - FastAPI - TensorFlow - PIL (Pillow) - NumPy\nFrontend: - React - Material-UI - Axios - Material-UI Dropzone\nModel: - CNN trained on PlantVillage dataset - 3 classes: Early Blight, Late Blight, Healthy"
+  },
+  {
+    "objectID": "index.html#project-structure",
+    "href": "index.html#project-structure",
+    "title": "Potato Disease Detection System",
+    "section": "Project Structure",
+    "text": "Project Structure\n\n/api - FastAPI backend with model serving\n/frontend - React application\n/models - Trained TensorFlow model\n/training - Jupyter notebook with training code\nQuarto documentation (this website)"
+  },
+  {
+    "objectID": "api-docs.html",
+    "href": "api-docs.html",
+    "title": "API Documentation",
+    "section": "",
+    "text": "The API is built with FastAPI and serves the trained TensorFlow model.\n\n\nThe API loads a pre-trained model and serves it through two endpoints:\nMODEL = tf.keras.models.load_model(\"../models/1/potatoes.h5\")\nCLASS_NAMES = [\"Early Blight\", \"Late Blight\", \"Healthy\"]"
+  },
+  {
+    "objectID": "api-docs.html#simple-fastapi-backend",
+    "href": "api-docs.html#simple-fastapi-backend",
+    "title": "API Documentation",
+    "section": "",
+    "text": "The API is built with FastAPI and serves the trained TensorFlow model.\n\n\nThe API loads a pre-trained model and serves it through two endpoints:\nMODEL = tf.keras.models.load_model(\"../models/1/potatoes.h5\")\nCLASS_NAMES = [\"Early Blight\", \"Late Blight\", \"Healthy\"]"
+  },
+  {
+    "objectID": "api-docs.html#endpoints",
+    "href": "api-docs.html#endpoints",
+    "title": "API Documentation",
+    "section": "Endpoints",
+    "text": "Endpoints\n\nHealth Check\nGET /ping\nReturns \"Hello\" to verify the API is running.\n\n\nImage Prediction\nPOST /predict\nUploads an image file and returns prediction.\nResponse:\n{\n  \"class\": \"Early Blight\",\n  \"confidence\": 0.95\n}"
+  },
+  {
+    "objectID": "api-docs.html#dependencies",
+    "href": "api-docs.html#dependencies",
+    "title": "API Documentation",
+    "section": "Dependencies",
+    "text": "Dependencies\nFrom requirements.txt: - tensorflow - fastapi - uvicorn - python-multipart - pillow - numpy\nExample Usage:\n\ncURLPythonJavaScript\n\n\ncurl -X POST \"http://localhost:8000/predict\" \\\n  -H \"accept: application/json\" \\\n  -H \"Content-Type: multipart/form-data\" \\\n  -F \"file=@potato_leaf.jpg\"\n\n\nimport requests\n\nurl = \"http://localhost:8000/predict\"\nwith open(\"potato_leaf.jpg\", \"rb\") as f:\n    files = {\"file\": f}\n    response = requests.post(url, files=files)\n    result = response.json()\n\nprint(f\"Disease: {result['class']}\")\nprint(f\"Confidence: {result['confidence']:.2%}\")\n\n\nconst formData = new FormData();\nformData.append('file', imageFile);\n\nfetch('http://localhost:8000/predict', {\n  method: 'POST',\n  body: formData\n})\n.then(response =&gt; response.json())\n.then(data =&gt; {\n  console.log('Disease:', data.class);\n  console.log('Confidence:', data.confidence);\n});"
+  },
+  {
+    "objectID": "api-docs.html#response-codes",
+    "href": "api-docs.html#response-codes",
+    "title": "API Documentation",
+    "section": "Response Codes",
+    "text": "Response Codes\n\n\n\nCode\nDescription\n\n\n\n\n200\nSuccess - Prediction completed\n\n\n400\nBad Request - Invalid file format\n\n\n422\nValidation Error - Missing file\n\n\n500\nInternal Server Error"
+  },
+  {
+    "objectID": "api-docs.html#error-handling",
+    "href": "api-docs.html#error-handling",
+    "title": "API Documentation",
+    "section": "Error Handling",
+    "text": "Error Handling\n\nInvalid File Format\n{\n  \"detail\": \"Invalid file format. Please upload JPG, PNG, or JPEG images only.\"\n}\n\n\nMissing File\n{\n  \"detail\": [\n    {\n      \"loc\": [\"body\", \"file\"],\n      \"msg\": \"field required\",\n      \"type\": \"value_error.missing\"\n    }\n  ]\n}"
+  },
+  {
+    "objectID": "api-docs.html#rate-limiting",
+    "href": "api-docs.html#rate-limiting",
+    "title": "API Documentation",
+    "section": "Rate Limiting",
+    "text": "Rate Limiting\nCurrently no rate limiting is implemented, but consider implementing it for production use:\n\nRequests per minute: 60\nRequests per hour: 1000\nFile size limit: 10MB"
+  },
+  {
+    "objectID": "api-docs.html#cors-configuration",
+    "href": "api-docs.html#cors-configuration",
+    "title": "API Documentation",
+    "section": "CORS Configuration",
+    "text": "CORS Configuration\nThe API is configured to accept requests from: - http://localhost:3000 (React development server) - http://localhost:8080 (Alternative frontend port)"
+  },
+  {
+    "objectID": "api-docs.html#model-information",
+    "href": "api-docs.html#model-information",
+    "title": "API Documentation",
+    "section": "Model Information",
+    "text": "Model Information\n\nInput Requirements\n\nImage Format: JPG, PNG, JPEG\nProcessing Size: Images are resized to 256x256 pixels\nColor Space: RGB (3 channels)\nNormalization: Pixel values scaled to [0,1]\n\n\n\nModel Details\n\nArchitecture: Convolutional Neural Network (CNN)\nFramework: TensorFlow/Keras\nModel File: ../models/1/potatoes.h5\nClasses: 3 (Early Blight, Late Blight, Healthy)"
+  },
+  {
+    "objectID": "api-docs.html#integration-examples",
+    "href": "api-docs.html#integration-examples",
+    "title": "API Documentation",
+    "section": "Integration Examples",
+    "text": "Integration Examples\n\nReact Frontend Integration\n// Image upload handler\nconst handleImageUpload = async (file) =&gt; {\n  const formData = new FormData();\n  formData.append('file', file);\n  \n  try {\n    const response = await fetch('http://localhost:8000/predict', {\n      method: 'POST',\n      body: formData\n    });\n    \n    const result = await response.json();\n    \n    setPrediction({\n      disease: result.class,\n      confidence: (result.confidence * 100).toFixed(1)\n    });\n  } catch (error) {\n    console.error('Prediction failed:', error);\n  }\n};\n\n\nMobile App Integration\n// Flutter/Dart example\nFuture&lt;Map&lt;String, dynamic&gt;&gt; predictDisease(File imageFile) async {\n  var request = http.MultipartRequest(\n    'POST', \n    Uri.parse('http://localhost:8000/predict')\n  );\n  \n  request.files.add(\n    await http.MultipartFile.fromPath('file', imageFile.path)\n  );\n  \n  var response = await request.send();\n  var responseData = await response.stream.toBytes();\n  var result = json.decode(String.fromCharCodes(responseData));\n  \n  return result;\n}"
+  },
+  {
+    "objectID": "api-docs.html#performance-metrics",
+    "href": "api-docs.html#performance-metrics",
+    "title": "API Documentation",
+    "section": "Performance Metrics",
+    "text": "Performance Metrics\n\nAverage Response Time: ~200ms\nModel Inference Time: ~50ms\nImage Processing Time: ~100ms\nNetwork Overhead: ~50ms"
+  },
+  {
+    "objectID": "api-docs.html#security-considerations",
+    "href": "api-docs.html#security-considerations",
+    "title": "API Documentation",
+    "section": "Security Considerations",
+    "text": "Security Considerations\n\n\n\n\n\n\nWarningProduction Recommendations\n\n\n\n\nImplement authentication (API keys, JWT tokens)\nAdd rate limiting to prevent abuse\nValidate file sizes and types thoroughly\nUse HTTPS in production\nImplement request logging and monitoring"
+  },
+  {
+    "objectID": "api-docs.html#troubleshooting",
+    "href": "api-docs.html#troubleshooting",
+    "title": "API Documentation",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n\nCommon Issues\nCORS Errors: - Ensure frontend runs on allowed origins - Check CORS middleware configuration\nModel Loading Errors: - Verify model file exists at correct path - Check TensorFlow version compatibility\nLarge File Uploads: - Implement file size validation - Consider image compression before upload\n\n\nDebugging\nEnable debug mode for detailed error messages:\n# In main.py\napp = FastAPI(debug=True)"
+  },
+  {
+    "objectID": "methodology.html",
+    "href": "methodology.html",
+    "title": "Methodology",
+    "section": "",
+    "text": "This project follows a standard machine learning workflow to create a potato disease classifier."
+  },
+  {
+    "objectID": "methodology.html#simple-project-methodology",
+    "href": "methodology.html#simple-project-methodology",
+    "title": "Methodology",
+    "section": "",
+    "text": "This project follows a standard machine learning workflow to create a potato disease classifier."
+  },
+  {
+    "objectID": "methodology.html#project-goals",
+    "href": "methodology.html#project-goals",
+    "title": "Methodology",
+    "section": "Project Goals",
+    "text": "Project Goals\n\nLearn CNN image classification\nBuild a FastAPI backend\nCreate a React frontend\nDocument the project with Quarto"
+  },
+  {
+    "objectID": "methodology.html#approach",
+    "href": "methodology.html#approach",
+    "title": "Methodology",
+    "section": "Approach",
+    "text": "Approach\n\nDataset: Use PlantVillage potato disease dataset\nModel: Train a simple CNN with TensorFlow\nAPI: Serve model with FastAPI\nFrontend: React app for image upload\nDocumentation: Quarto website"
+  },
+  {
+    "objectID": "methodology.html#data-collection-preparation",
+    "href": "methodology.html#data-collection-preparation",
+    "title": "Methodology",
+    "section": "Data Collection & Preparation",
+    "text": "Data Collection & Preparation\n\nDataset Overview\n\n\n\n\n\n\nNotePlantVillage Dataset\n\n\n\n\nSource: Kaggle PlantVillage Dataset\nTotal Images: ~2,100 potato leaf images\nClasses: 3 (Early Blight, Late Blight, Healthy)\nImage Format: JPG, various resolutions\nCollection Method: Controlled laboratory conditions\n\n\n\n\n\nData Distribution\n\n\n\nClass\nTraining\nValidation\nTest\nTotal\n\n\n\n\nEarly Blight\n800\n100\n100\n1,000\n\n\nHealthy\n600\n75\n75\n750\n\n\nLate Blight\n560\n70\n70\n700\n\n\nTotal\n1,960\n245\n245\n2,450\n\n\n\n\n\nPreprocessing Pipeline\n\nImage Resizing: All images standardized to 256×256 pixels\nNormalization: Pixel values scaled to [0,1] range\nData Augmentation:\n\nRandom rotation (±30°)\nHorizontal flipping\nBrightness adjustment (±20%)\nZoom range (±10%)\n\n\n# Data augmentation configuration\ndata_augmentation = tf.keras.Sequential([\n    tf.keras.layers.experimental.preprocessing.RandomFlip(\"horizontal\"),\n    tf.keras.layers.experimental.preprocessing.RandomRotation(0.1),\n    tf.keras.layers.experimental.preprocessing.RandomZoom(0.1),\n    tf.keras.layers.experimental.preprocessing.RandomBrightness(0.2)\n])"
+  },
+  {
+    "objectID": "methodology.html#model-architecture-design",
+    "href": "methodology.html#model-architecture-design",
+    "title": "Methodology",
+    "section": "Model Architecture Design",
+    "text": "Model Architecture Design\n\nCNN Architecture Selection\nAfter evaluating multiple architectures, we selected a custom CNN design optimized for: - Computational efficiency for deployment - Feature extraction capability for plant diseases - Generalization performance across different conditions\n\n\nNetwork Architecture\ngraph TD\n    A[Input: 256×256×3] --&gt; B[Conv2D: 32 filters, 3×3]\n    B --&gt; C[MaxPool2D: 2×2]\n    C --&gt; D[Conv2D: 64 filters, 3×3] \n    D --&gt; E[MaxPool2D: 2×2]\n    E --&gt; F[Conv2D: 128 filters, 3×3]\n    F --&gt; G[MaxPool2D: 2×2]\n    G --&gt; H[Flatten]\n    H --&gt; I[Dropout: 0.5]\n    I --&gt; J[Dense: 128 units, ReLU]\n    J --&gt; K[Dense: 3 units, Softmax]\n\n\nDesign Rationale\n\nConvolutional Layers: Extract hierarchical features from leaf images\nMaxPooling: Reduce spatial dimensions and computational load\nProgressive Filters: Increase filter count (32→64→128) for complex feature learning\nDropout: Prevent overfitting with 50% dropout rate\nDense Layers: Final classification with ReLU activation"
+  },
+  {
+    "objectID": "methodology.html#training-methodology",
+    "href": "methodology.html#training-methodology",
+    "title": "Methodology",
+    "section": "Training Methodology",
+    "text": "Training Methodology\n\nTraining Configuration\nmodel.compile(\n    optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),\n    loss='sparse_categorical_crossentropy',\n    metrics=['accuracy']\n)\n\n\nHyperparameter Selection\n\n\n\n\n\n\n\n\nParameter\nValue\nJustification\n\n\n\n\nLearning Rate\n0.001\nBalanced convergence speed\n\n\nBatch Size\n32\nMemory efficiency + stable gradients\n\n\nEpochs\n50\nSufficient for convergence\n\n\nOptimizer\nAdam\nAdaptive learning rate\n\n\nLoss Function\nSparse Categorical Crossentropy\nMulti-class classification\n\n\n\n\n\nTraining Strategy\n\nEarly Stopping: Monitor validation loss with patience=10\nLearning Rate Scheduling: Reduce on plateau\nModel Checkpointing: Save best model based on validation accuracy\nCross-validation: 5-fold validation for robustness assessment"
+  },
+  {
+    "objectID": "methodology.html#evaluation-methodology",
+    "href": "methodology.html#evaluation-methodology",
+    "title": "Methodology",
+    "section": "Evaluation Methodology",
+    "text": "Evaluation Methodology\n\nMetrics Selection\nPrimary Metrics: - Accuracy: Overall classification correctness - Precision: True positives / (True positives + False positives)\n- Recall: True positives / (True positives + False negatives) - F1-Score: Harmonic mean of precision and recall\nSecondary Metrics: - Confusion Matrix: Detailed error analysis - ROC-AUC: Multi-class classification performance - Inference Time: Model efficiency assessment\n\n\nValidation Strategy\n\nHold-out Validation: 80/10/10 train/val/test split\nStratified Sampling: Maintain class distribution across splits\nCross-validation: 5-fold CV for robustness verification\nReal-world Testing: Field validation with agricultural experts"
+  },
+  {
+    "objectID": "methodology.html#system-architecture",
+    "href": "methodology.html#system-architecture",
+    "title": "Methodology",
+    "section": "System Architecture",
+    "text": "System Architecture\n\nFull-Stack Development Approach\ngraph LR\n    A[React Frontend] &lt;--&gt; B[FastAPI Backend]\n    B &lt;--&gt; C[TensorFlow Model]\n    C --&gt; D[Model Inference]\n    D --&gt; B\n    B --&gt; E[JSON Response]\n    E --&gt; A\n\n\nTechnology Stack Rationale\nFrontend (React): - Component-based architecture for maintainability - Material-UI for professional interface - Responsive design for mobile compatibility\nBackend (FastAPI): - High-performance API framework - Automatic API documentation generation - Async support for concurrent requests\nML Framework (TensorFlow): - Industry-standard deep learning framework - Excellent deployment options - Strong community support"
+  },
+  {
+    "objectID": "methodology.html#deployment-methodology",
+    "href": "methodology.html#deployment-methodology",
+    "title": "Methodology",
+    "section": "Deployment Methodology",
+    "text": "Deployment Methodology\n\nAPI Design Principles\n\nRESTful Architecture: Standard HTTP methods and status codes\nStateless Design: Each request contains all necessary information\nError Handling: Comprehensive error responses and logging\nCORS Configuration: Enable cross-origin requests\n\n\n\nPerformance Optimization\n\nModel Optimization:\n\nH5 format for efficient loading\nFloat32 precision for speed\nBatch prediction capability\n\nAPI Optimization:\n\nAsync request handling\nImage preprocessing pipeline\nResponse caching (future implementation)"
+  },
+  {
+    "objectID": "methodology.html#quality-assurance",
+    "href": "methodology.html#quality-assurance",
+    "title": "Methodology",
+    "section": "Quality Assurance",
+    "text": "Quality Assurance\n\nTesting Strategy\nUnit Testing: - Individual function validation - API endpoint testing - Model inference verification\nIntegration Testing: - End-to-end workflow validation - Frontend-backend communication - Error handling scenarios\nUser Acceptance Testing: - Farmer feedback collection - Usability assessment - Performance validation\n\n\nValidation Criteria\n\n\n\n\n\n\nImportantAcceptance Criteria\n\n\n\n\nModel accuracy ≥ 85% on test set\nAPI response time ≤ 500ms for 95% of requests\nUser interface usability score ≥ 4.0/5.0\nZero critical security vulnerabilities"
+  },
+  {
+    "objectID": "methodology.html#experimental-controls",
+    "href": "methodology.html#experimental-controls",
+    "title": "Methodology",
+    "section": "Experimental Controls",
+    "text": "Experimental Controls\n\nBias Mitigation\n\nData Bias: Ensured balanced class representation\nSelection Bias: Random train/test splits\nConfirmation Bias: Blind evaluation protocols\nTemporal Bias: Images from multiple time periods\n\n\n\nReproducibility Measures\n\nSeed Setting: Fixed random seeds for reproducible results\nVersion Control: All code and data versioned\nEnvironment Documentation: Complete dependency specifications\nExperiment Logging: Detailed training logs and metrics"
+  },
+  {
+    "objectID": "methodology.html#ethical-considerations",
+    "href": "methodology.html#ethical-considerations",
+    "title": "Methodology",
+    "section": "Ethical Considerations",
+    "text": "Ethical Considerations\n\nData Privacy\n\nNo personal information in image metadata\nSecure handling of uploaded images\nData retention policies defined\n\n\n\nAlgorithmic Fairness\n\nEqual performance across disease types\nNo bias toward specific image conditions\nTransparent prediction explanations\n\n\n\nEnvironmental Impact\n\nEfficient model design reduces computational requirements\nEdge deployment minimizes cloud computing needs"
+  },
+  {
+    "objectID": "methodology.html#limitations-assumptions",
+    "href": "methodology.html#limitations-assumptions",
+    "title": "Methodology",
+    "section": "Limitations & Assumptions",
+    "text": "Limitations & Assumptions\n\nKnown Limitations\n\nDataset Scope: Limited to controlled laboratory conditions\nGeographic Bias: Images primarily from specific regions\nSeasonal Variation: Limited temporal diversity in training data\nEquipment Dependency: Requires digital camera/smartphone\n\n\n\nKey Assumptions\n\nImage Quality: Assumes reasonable image quality and lighting\nDisease Stages: Model trained on visible symptom stages\nSingle Disease: Assumes one primary disease per image\nCrop Variety: Limited to common potato varieties"
+  },
+  {
+    "objectID": "methodology.html#future-research-directions",
+    "href": "methodology.html#future-research-directions",
+    "title": "Methodology",
+    "section": "Future Research Directions",
+    "text": "Future Research Directions\n\nImmediate Improvements\n\nExpand dataset with field conditions\nImplement transfer learning approaches\nAdd disease severity assessment\nMobile app development\n\n\n\nLong-term Vision\n\nMulti-crop disease detection\nIntegration with IoT sensors\nPredictive disease modeling\nTreatment recommendation system\n\nThis methodology provides a systematic approach to developing, validating, and deploying machine learning solutions for agricultural applications, ensuring scientific rigor and practical utility."
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html",
+    "href": "QUARTO_IMPLEMENTATION.html",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "This guide explains how to implement Quarto in your potato disease detection project for comprehensive documentation, analysis, and presentation.\n\n\nQuarto is a scientific and technical publishing system that allows you to: - Create websites, PDFs, presentations, and books - Combine code, results, and narrative text - Support multiple programming languages (Python, R, Julia, Observable JS) - Generate publication-ready documents with professional formatting\n\n\n\n\n\n\n_quarto.yml - Main project configuration\nstyles.css - Custom styling for professional appearance\n\n\n\n\n\nindex.qmd - Main project overview and introduction\nmethodology.qmd - Detailed research methodology and approach\nmodel-analysis.qmd - Model development and training analysis\napi-docs.qmd - Complete API documentation with examples\nresults.qmd - Performance results and evaluation metrics\ntraining.qmd - Interactive training notebook (converted from Jupyter)\n\n\n\n\n\nbuild-docs.ps1 - PowerShell script to build and preview documentation\n\n\n\n\n\n\n\n# Download from https://quarto.org/docs/get-started/\n# Or use package manager:\nwinget install quarto\n\n\n\npip install jupyter matplotlib seaborn pandas numpy scikit-learn\n\n\n\nquarto check\n\n\n\n\n\n\n# Build entire website\nquarto render\n\n# Build specific document\nquarto render index.qmd\n\n# Preview locally\nquarto preview\n\n\n\n# Generate PDF\nquarto render --to pdf\n\n# Generate Word document\nquarto render --to docx\n\n# Generate presentation\nquarto render --to revealjs\n\n\n\n\n\n\n\nCode blocks with syntax highlighting\nExecutable Python code cells\nInteractive plots and visualizations\nTabbed content sections\n\n\n\n\n\nCustom CSS theme with your project colors\nResponsive design for mobile devices\nProfessional typography and layout\nStatus indicators and callout boxes\n\n\n\n\n\nProject Overview: Clear introduction and system architecture\nMethodology: Detailed research approach and validation\nModel Analysis: Training process and performance metrics\nAPI Documentation: Complete endpoint documentation with examples\nResults: Performance analysis and real-world testing\n\n\n\n\n\nResponsive navbar with project sections\nTable of contents for easy navigation\nCross-references between documents\nGitHub integration link\n\n\n\n\n\n\n\n\nPortfolio Quality: Showcase your work professionally\nRecruiter Friendly: Easy-to-navigate documentation\nTechnical Depth: Demonstrate comprehensive understanding\n\n\n\n\n\nProject Documentation: Maintain comprehensive records\nCollaboration: Share with team members and stakeholders\nVersion Control: Track changes in documentation alongside code\n\n\n\n\n\nWeb Portfolio: Deploy as website for easy sharing\nPDF Reports: Generate formal reports for presentations\nInteractive Analysis: Executable code for reproducible research\n\n\n\n\n\n\n\nformat:\n  html:\n    theme: [cosmo, flatly, journal, lumen, paper, readable, sandstone, simplex, yeti]\n\n\n\nexecute:\n  echo: true      # Show code\n  warning: false  # Hide warnings\n  code-fold: true # Collapsible code blocks\n\n\n\nformat:\n  html: default\n  pdf: default\n  docx: default\n  revealjs: default  # Presentations\n\n\n\n\n\n\nquarto publish gh-pages\n\n\n\nquarto publish netlify\n\n\n\n\nBuild static files with quarto render\nDeploy _site/ directory to web server\n\n\n\n\n\n\n\n\nConvert existing training.ipynb to training.qmd\nMaintain all code functionality with better presentation\nAdd narrative text and analysis\n\n\n\n\n\nAutomatically document your FastAPI endpoints\nInclude request/response examples\nAdd usage scenarios and troubleshooting\n\n\n\n\n\nInteractive plots and visualizations\nPerformance metrics and comparisons\nReal-world testing results\n\n\n\n\n\n\n\n\nUpdate documentation as code changes\nRefresh performance metrics\nAdd new features and improvements\n\n\n\n\n\nInclude .qmd files in Git repository\nExclude _site/ directory (add to .gitignore)\nTrack documentation changes with code changes\n\n\n\n\n\n\n\n\nKeep each document focused on specific topic\nUse consistent formatting and structure\nInclude clear navigation between sections\n\n\n\n\n\nAdd explanatory text around code blocks\nUse meaningful variable names and comments\nInclude expected outputs and interpretations\n\n\n\n\n\nMaintain consistent styling across documents\nUse callout boxes for important information\nInclude relevant plots and visualizations\n\nThis Quarto implementation transforms your potato disease detection project into a comprehensive, professional documentation system that showcases both technical depth and practical application."
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#what-is-quarto",
+    "href": "QUARTO_IMPLEMENTATION.html#what-is-quarto",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "Quarto is a scientific and technical publishing system that allows you to: - Create websites, PDFs, presentations, and books - Combine code, results, and narrative text - Support multiple programming languages (Python, R, Julia, Observable JS) - Generate publication-ready documents with professional formatting"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#files-created",
+    "href": "QUARTO_IMPLEMENTATION.html#files-created",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "_quarto.yml - Main project configuration\nstyles.css - Custom styling for professional appearance\n\n\n\n\n\nindex.qmd - Main project overview and introduction\nmethodology.qmd - Detailed research methodology and approach\nmodel-analysis.qmd - Model development and training analysis\napi-docs.qmd - Complete API documentation with examples\nresults.qmd - Performance results and evaluation metrics\ntraining.qmd - Interactive training notebook (converted from Jupyter)\n\n\n\n\n\nbuild-docs.ps1 - PowerShell script to build and preview documentation"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#installation-setup",
+    "href": "QUARTO_IMPLEMENTATION.html#installation-setup",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "# Download from https://quarto.org/docs/get-started/\n# Or use package manager:\nwinget install quarto\n\n\n\npip install jupyter matplotlib seaborn pandas numpy scikit-learn\n\n\n\nquarto check"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#usage",
+    "href": "QUARTO_IMPLEMENTATION.html#usage",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "# Build entire website\nquarto render\n\n# Build specific document\nquarto render index.qmd\n\n# Preview locally\nquarto preview\n\n\n\n# Generate PDF\nquarto render --to pdf\n\n# Generate Word document\nquarto render --to docx\n\n# Generate presentation\nquarto render --to revealjs"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#key-features-implemented",
+    "href": "QUARTO_IMPLEMENTATION.html#key-features-implemented",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "Code blocks with syntax highlighting\nExecutable Python code cells\nInteractive plots and visualizations\nTabbed content sections\n\n\n\n\n\nCustom CSS theme with your project colors\nResponsive design for mobile devices\nProfessional typography and layout\nStatus indicators and callout boxes\n\n\n\n\n\nProject Overview: Clear introduction and system architecture\nMethodology: Detailed research approach and validation\nModel Analysis: Training process and performance metrics\nAPI Documentation: Complete endpoint documentation with examples\nResults: Performance analysis and real-world testing\n\n\n\n\n\nResponsive navbar with project sections\nTable of contents for easy navigation\nCross-references between documents\nGitHub integration link"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#benefits-for-your-project",
+    "href": "QUARTO_IMPLEMENTATION.html#benefits-for-your-project",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "Portfolio Quality: Showcase your work professionally\nRecruiter Friendly: Easy-to-navigate documentation\nTechnical Depth: Demonstrate comprehensive understanding\n\n\n\n\n\nProject Documentation: Maintain comprehensive records\nCollaboration: Share with team members and stakeholders\nVersion Control: Track changes in documentation alongside code\n\n\n\n\n\nWeb Portfolio: Deploy as website for easy sharing\nPDF Reports: Generate formal reports for presentations\nInteractive Analysis: Executable code for reproducible research"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#customization-options",
+    "href": "QUARTO_IMPLEMENTATION.html#customization-options",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "format:\n  html:\n    theme: [cosmo, flatly, journal, lumen, paper, readable, sandstone, simplex, yeti]\n\n\n\nexecute:\n  echo: true      # Show code\n  warning: false  # Hide warnings\n  code-fold: true # Collapsible code blocks\n\n\n\nformat:\n  html: default\n  pdf: default\n  docx: default\n  revealjs: default  # Presentations"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#publishing-options",
+    "href": "QUARTO_IMPLEMENTATION.html#publishing-options",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "quarto publish gh-pages\n\n\n\nquarto publish netlify\n\n\n\n\nBuild static files with quarto render\nDeploy _site/ directory to web server"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#integration-with-existing-project",
+    "href": "QUARTO_IMPLEMENTATION.html#integration-with-existing-project",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "Convert existing training.ipynb to training.qmd\nMaintain all code functionality with better presentation\nAdd narrative text and analysis\n\n\n\n\n\nAutomatically document your FastAPI endpoints\nInclude request/response examples\nAdd usage scenarios and troubleshooting\n\n\n\n\n\nInteractive plots and visualizations\nPerformance metrics and comparisons\nReal-world testing results"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#maintenance",
+    "href": "QUARTO_IMPLEMENTATION.html#maintenance",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "Update documentation as code changes\nRefresh performance metrics\nAdd new features and improvements\n\n\n\n\n\nInclude .qmd files in Git repository\nExclude _site/ directory (add to .gitignore)\nTrack documentation changes with code changes"
+  },
+  {
+    "objectID": "QUARTO_IMPLEMENTATION.html#best-practices",
+    "href": "QUARTO_IMPLEMENTATION.html#best-practices",
+    "title": "Quarto Implementation Guide",
+    "section": "",
+    "text": "Keep each document focused on specific topic\nUse consistent formatting and structure\nInclude clear navigation between sections\n\n\n\n\n\nAdd explanatory text around code blocks\nUse meaningful variable names and comments\nInclude expected outputs and interpretations\n\n\n\n\n\nMaintain consistent styling across documents\nUse callout boxes for important information\nInclude relevant plots and visualizations\n\nThis Quarto implementation transforms your potato disease detection project into a comprehensive, professional documentation system that showcases both technical depth and practical application."
+  },
+  {
+    "objectID": "training/training.html",
+    "href": "training/training.html",
+    "title": "Potato Disease Detection",
+    "section": "",
+    "text": "import tensorflow as tf\nfrom tensorflow.keras import models, layers\nimport matplotlib.pyplot as plt\n\n\nIMAGE_SIZE = 256\nBATCH_SIZE = 32\nCHANNELS = 3\nEPOCHS = 50\n\n\ndataset = tf.keras.preprocessing.image_dataset_from_directory(\n    \"PlantVillage\",\n    shuffle = True,\n    image_size = (IMAGE_SIZE, IMAGE_SIZE),\n    batch_size = BATCH_SIZE\n)\n\n\nclass_names = dataset.class_names\nclass_names\n\n\nlen(dataset)\n\n\nplt.figure(figsize = (10,10))\nfor image_batch, label_batch in dataset.take(1):\n    for i in range(12):\n        ax = plt.subplot(3,4,i+1)\n        plt.imshow(image_batch[i].numpy().astype(\"uint8\"))\n        plt.title(class_names[label_batch[0]])\n        plt.axis(\"off\")\n\n\nlen(dataset)\n\n\ntrain_size = 0.8\nlen(dataset)*train_size\n\n\ntrain_ds = dataset.take(54)\nlen(train_ds)\n\n\ntest_ds = dataset.skip(54)\nlen(test_ds)\n\n\nval_size = 0.1\nlen(dataset)*val_size\n\n\nval_ds = test_ds.take(6)\nlen(val_ds)\n\n\ntest_ds = test_ds.skip(6)\nlen(test_ds)\n\n\ndef get_dataset_partitions_tf(ds, train_split=0.8, val_split=0.1, test_split=0.1, shuffle=True, shuffle_size=10000):\n    assert (train_split + test_split + val_split) == 1\n    \n    ds_size = len(ds)\n    \n    if shuffle:\n        ds = ds.shuffle(shuffle_size, seed=12)\n    \n    train_size = int(train_split * ds_size)\n    val_size = int(val_split * ds_size)\n    \n    train_ds = ds.take(train_size)    \n    val_ds = ds.skip(train_size).take(val_size)\n    test_ds = ds.skip(train_size).skip(val_size)\n    \n    return train_ds, val_ds, test_ds\n\n\ntrain_ds, val_ds, test_ds = get_dataset_partitions_tf(dataset)\n\n\nlen(train_ds)\n\n\nlen(val_ds)\n\n\nlen(test_ds)\n\n\ntrain_ds=train_ds.cache().shuffle(1000).prefetch(buffer_size=tf.data.AUTOTUNE)\nval_ds=val_ds.cache().shuffle(1000).prefetch(buffer_size=tf.data.AUTOTUNE)\ntest_ds=test_ds.cache().shuffle(1000).prefetch(buffer_size=tf.data.AUTOTUNE)\n\n\nresize_and_rescale = tf.keras.Sequential([\n    layers.Resizing(IMAGE_SIZE, IMAGE_SIZE),\n    layers.Rescaling(1./255),\n])\n\n\ndata_augmentation = tf.keras.Sequential([\n    layers.RandomFlip(\"horizontal_and__vertical\"),\n    layers.RandomRotation(0.2),\n])\n\n\nn_classes = 3\n\nmodel = models.Sequential([\n    layers.Input(shape=(IMAGE_SIZE, IMAGE_SIZE, CHANNELS)),\n    resize_and_rescale,\n    layers.Conv2D(32, kernel_size = (3,3), activation='relu'),\n    layers.MaxPooling2D((2, 2)),\n    layers.Conv2D(64,  kernel_size = (3,3), activation='relu'),\n    layers.MaxPooling2D((2, 2)),\n    layers.Conv2D(64,  kernel_size = (3,3), activation='relu'),\n    layers.MaxPooling2D((2, 2)),\n    layers.Conv2D(64, (3, 3), activation='relu'),\n    layers.MaxPooling2D((2, 2)),\n    layers.Conv2D(64, (3, 3), activation='relu'),\n    layers.MaxPooling2D((2, 2)),\n    layers.Conv2D(64, (3, 3), activation='relu'),\n    layers.MaxPooling2D((2, 2)),\n    layers.Flatten(),\n    layers.Dense(64, activation='relu'),\n    layers.Dense(n_classes, activation='softmax'),\n])\n\n\nmodel.summary()\n\n\nmodel.compile(\n    optimizer='adam',\n    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False),\n    metrics=['accuracy']\n)\n\n\nhistory = model.fit(\n    train_ds,\n    batch_size=BATCH_SIZE,\n    validation_data=val_ds,\n    verbose=1,\n    epochs=50,\n)\n\n\nscores = model.evaluate(test_ds)\n\n\nhistory.history['loss'][:5] # show loss for first 5 epochs\n\n\nacc = history.history['accuracy']\nval_acc = history.history['val_accuracy']\n\nloss = history.history['loss']\nval_loss = history.history['val_loss']\n\n\nplt.figure(figsize=(8, 8))\nplt.subplot(1, 2, 1)\nplt.plot(range(EPOCHS), acc, label='Training Accuracy')\nplt.plot(range(EPOCHS), val_acc, label='Validation Accuracy')\nplt.legend(loc='lower right')\nplt.title('Training and Validation Accuracy')\n\nplt.subplot(1, 2, 2)\nplt.plot(range(EPOCHS), loss, label='Training Loss')\nplt.plot(range(EPOCHS), val_loss, label='Validation Loss')\nplt.legend(loc='upper right')\nplt.title('Training and Validation Loss')\nplt.show()\n\n\nimport numpy as np\nfor images_batch, labels_batch in test_ds.take(1):\n    \n    first_image = images_batch[0].numpy().astype('uint8')\n    first_label = labels_batch[0].numpy()\n    \n    print(\"first image to predict\")\n    plt.imshow(first_image)\n    print(\"actual label:\",class_names[first_label])\n    \n    batch_prediction = model.predict(images_batch)\n    print(\"predicted label:\",class_names[np.argmax(batch_prediction[0])])\n\n\ndef predict(model, img):\n    img_array = tf.keras.preprocessing.image.img_to_array(images[i].numpy())\n    img_array = tf.expand_dims(img_array, 0)\n\n    predictions = model.predict(img_array)\n\n    predicted_class = class_names[np.argmax(predictions[0])]\n    confidence = round(100 * (np.max(predictions[0])), 2)\n    return predicted_class, confidence\n\n\nplt.figure(figsize=(15, 15))\nfor images, labels in test_ds.take(1):\n    for i in range(9):\n        ax = plt.subplot(3, 3, i + 1)\n        plt.imshow(images[i].numpy().astype(\"uint8\"))\n        \n        predicted_class, confidence = predict(model, images[i].numpy())\n        actual_class = class_names[labels[i]] \n        \n        plt.title(f\"Actual: {actual_class},\\n Predicted: {predicted_class}.\\n Confidence: {confidence}%\")\n        \n        plt.axis(\"off\")\n\n\nimport os\nimport re\n\nMODELS_DIR = \"../models\"\nos.makedirs(MODELS_DIR, exist_ok=True)          # make sure the folder exists\n\n# pick the highest numeric prefix already present, ignoring extensions\nversions = [\n    int(m.group(1))\n    for f in os.listdir(MODELS_DIR)\n    if (m := re.match(r\"^(\\d+)(?:\\.(keras|h5))?$\", f))\n]\nmodel_version = (max(versions) if versions else 0) + 1\n\n# save in the recommended native format\nmodel.export(f\"{MODELS_DIR}/{model_version}\")"
+  }
+]

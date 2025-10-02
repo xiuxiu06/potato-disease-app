@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://xiuxiu06.github.io/potato-disease-app/training.html</loc>
-    <lastmod>2025-10-02T16:43:41.173Z</lastmod>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/VIDEO_SETUP.html</loc>
+    <lastmod>2025-10-02T17:18:15.503Z</lastmod>
   </url>
   <url>
-    <loc>https://xiuxiu06.github.io/potato-disease-app/results.html</loc>
-    <lastmod>2025-10-02T16:43:41.173Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xiuxiu06.github.io/potato-disease-app/model-analysis.html</loc>
-    <lastmod>2025-10-02T16:43:41.137Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xiuxiu06.github.io/potato-disease-app/index.html</loc>
-    <lastmod>2025-10-02T16:43:41.135Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xiuxiu06.github.io/potato-disease-app/api-docs.html</loc>
-    <lastmod>2025-10-02T16:43:41.005Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xiuxiu06.github.io/potato-disease-app/methodology.html</loc>
-    <lastmod>2025-10-02T16:43:41.136Z</lastmod>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/training/training.html</loc>
+    <lastmod>2025-10-02T16:43:42.329Z</lastmod>
   </url>
   <url>
     <loc>https://xiuxiu06.github.io/potato-disease-app/QUARTO_IMPLEMENTATION.html</loc>
     <lastmod>2025-10-02T16:43:41.002Z</lastmod>
   </url>
   <url>
-    <loc>https://xiuxiu06.github.io/potato-disease-app/training/training.html</loc>
-    <lastmod>2025-10-02T16:43:42.329Z</lastmod>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/methodology.html</loc>
+    <lastmod>2025-10-02T16:43:41.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/demo.html</loc>
+    <lastmod>2025-10-02T17:17:24.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/api-docs.html</loc>
+    <lastmod>2025-10-02T16:43:41.005Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/index.html</loc>
+    <lastmod>2025-10-02T17:17:57.395Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/model-analysis.html</loc>
+    <lastmod>2025-10-02T16:43:41.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/results.html</loc>
+    <lastmod>2025-10-02T16:43:41.173Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xiuxiu06.github.io/potato-disease-app/training.html</loc>
+    <lastmod>2025-10-02T16:43:41.173Z</lastmod>
   </url>
 </urlset>

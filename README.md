@@ -2,9 +2,9 @@
 
 A machine learning project that detects diseases in potato plants using image classification. Built with TensorFlow, FastAPI, and React.
 
-## 📊 [View Documentation Website](https://xiuxiu06.github.io/potato-disease-app/) | 🌐 [Try Live App](https://xiuxiu06.github.io/potato-disease-app/app/)
+## 📊 [View Documentation Website](https://xiuxiu06.github.io/potato-disease-app/) | � [Watch Demo Video](https://xiuxiu06.github.io/potato-disease-app/demo.html)
 
-Complete project documentation built with Quarto, plus live React application for disease detection.
+Complete project documentation built with Quarto, including live demonstration video showing the application in action.
 
 ## 🚀 Project Overview
 
@@ -82,9 +82,9 @@ Body: image file
 
 ## 📖 Documentation
 
-The complete project documentation and live application:
+The complete project documentation and demonstration:
 
-- **[📱 Live React App](https://xiuxiu06.github.io/potato-disease-app/app/)** - Try the disease detection tool
+- **[🎬 Demo Video](https://xiuxiu06.github.io/potato-disease-app/demo.html)** - Watch the application in action
 - **[📖 Project Overview](https://xiuxiu06.github.io/potato-disease-app/)** - Main project description
 - **[🧠 Model Training](https://xiuxiu06.github.io/potato-disease-app/training.html)** - Training code and process
 - **[🔌 API Documentation](https://xiuxiu06.github.io/potato-disease-app/api-docs.html)** - Backend API details

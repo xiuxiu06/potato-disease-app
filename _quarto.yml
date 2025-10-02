@@ -14,9 +14,8 @@ website:
         text: API Code
       - href: methodology.qmd
         text: Approach
-      - href: app/index.html
-        text: Live App
-        target: _blank
+      - href: demo.qmd
+        text: Demo Video
     right:
       - icon: github
         href: https://github.com/xiuxiu06/potato-disease-app

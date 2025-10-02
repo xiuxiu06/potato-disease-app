@@ -19,6 +19,10 @@ This is a simple machine learning project that demonstrates a potato disease det
 - A **React frontend** for uploading images
 - **Documentation** created with Quarto
 
+## 🎬 [Watch Demo Video](demo.html)
+
+See the complete application in action - from image upload to disease prediction results.
+
 ## What This Project Shows
 
 This project demonstrates my ability to:

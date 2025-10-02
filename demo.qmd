@@ -1,0 +1,114 @@
+---
+title: "Application Demo"
+author: "Tam Le"
+date: today
+format:
+  html:
+    toc: true
+    theme: cosmo
+---
+
+## Live Application Demonstration
+
+This video shows the potato disease detection system in action, demonstrating the complete workflow from image upload to disease prediction.
+
+### Demo Video: "potato-ai"
+
+::: {.callout-note}
+## How to Add Your Video
+Replace this section with your video. You can embed it using one of these methods:
+
+**Option 1: YouTube/Vimeo Embed**
+```html
+<iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+        title="Potato Disease Detection Demo" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+```
+
+**Option 2: Local Video File**
+```html
+<video width="100%" controls>
+  <source src="potato-ai.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+```
+
+**Option 3: Video Link**
+📹 [Watch Demo Video: potato-ai](link-to-your-video)
+:::
+
+## What the Demo Shows
+
+The demonstration covers:
+
+### 🔄 **Complete Workflow**
+1. **Image Upload**: User selects potato leaf image
+2. **Processing**: Image sent to FastAPI backend
+3. **AI Analysis**: CNN model analyzes the image
+4. **Results Display**: Disease classification with confidence score
+
+### 🧠 **Model Performance**
+- **Real-time predictions** in under 2 seconds
+- **Confidence scores** for prediction reliability
+- **Clean, intuitive interface** built with React and Material-UI
+
+### 🎯 **Disease Detection**
+The system can identify:
+- **Early Blight**: Early stage fungal infection
+- **Late Blight**: Advanced fungal infection
+- **Healthy**: No disease detected
+
+## Technical Implementation
+
+### Frontend Features Demonstrated
+- **Drag-and-drop** image upload
+- **Real-time preview** of uploaded images
+- **Loading states** during processing
+- **Results visualization** with confidence percentages
+- **Responsive design** working across devices
+
+### Backend Processing Shown
+- **Image preprocessing** (resize, normalize)
+- **Model inference** using TensorFlow
+- **JSON response** with classification results
+- **Error handling** for invalid uploads
+
+## System Architecture in Action
+
+```mermaid
+flowchart LR
+    A[User Uploads Image] --> B[React Frontend]
+    B --> C[FastAPI Backend] 
+    C --> D[Image Preprocessing]
+    D --> E[CNN Model Prediction]
+    E --> F[Return Results]
+    F --> G[Display Classification]
+```
+
+## Key Takeaways from Demo
+
+::: {.callout-tip}
+## Demonstrated Skills
+- **Full-stack Development**: Complete web application
+- **Machine Learning Integration**: Real model serving
+- **User Experience Design**: Intuitive, responsive interface
+- **API Development**: Clean REST endpoints
+- **Modern Tech Stack**: React, FastAPI, TensorFlow
+:::
+
+## Future Enhancements
+
+The demo also highlights potential improvements:
+- **Mobile app version** for field use
+- **Batch processing** for multiple images
+- **Treatment recommendations** based on disease type
+- **Disease severity assessment** 
+- **Historical tracking** of plant health
+
+---
+
+*This demonstration showcases the practical application of machine learning in agriculture, combining technical implementation with real-world usability.*

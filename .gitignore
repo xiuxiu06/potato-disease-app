@@ -6,6 +6,12 @@ _site/
 # React build (generated during deployment)
 app/
 
+# Video files (too large for git, use Git LFS or external hosting)
+*.mp4
+*.avi
+*.mov
+*.mkv
+
 # Python
 __pycache__/
 *.py[cod]
